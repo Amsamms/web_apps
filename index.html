@@ -4,58 +4,149 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Web Apps</title>
+
   <style>
+
+    /* Tooltip styling */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      left: 105%;
+     /* Font styling */
+      font-family: Arial, sans-serif; 
+      font-size: 13px;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    /* Rest of styling */
+
     body {
       font-family: Arial, sans-serif;
-      /* Gradient background for the body */
       background: linear-gradient(to right, #a1c4fd, #c2e9fb);
       padding: 20px;
       color: #333;
     }
+
     ul {
       list-style-type: none;
       padding: 0;
     }
+
     li {
       margin-bottom: 10px;
-      /* Gradient background for the list items */
       background: linear-gradient(to right, #f8ffae, #43c6ac);
       padding: 15px;
       border-radius: 5px;
       box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
       transition: box-shadow 0.3s ease;
     }
+
     li:hover {
       box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
     }
+
     a {
       color: #007BFF;
       text-decoration: none;
     }
+
     a:hover {
       color: #0056b3;
     }
+
     .signature {
       font-family: 'Brush Script MT', cursive;
       text-align: right;
       margin-top: 50px;
       font-size: 24px;
     }
+
   </style>
+
 </head>
+
 <body>
-  <h1>My Web Apps</h1>
+
+  <h1>Web Apps</h1>
+
   <ul>
-    <li><a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" target="_blank">Scatter Plotter</a></li>
-    <li><a href="https://amsamms-general-machine-learning-algorithm-main-rs6nt9.streamlit.app/" target="_blank">General Machine Learning Algorithm</a></li>
-    <li><a href="https://datasetanalysis-0.streamlit.app/" target="_blank">Dataset Analysis</a></li>
-    <li><a href="https://unit-converter-engineering.streamlit.app/" target="_blank">Unit Converter Engineering</a></li>
-    <li><a href="https://gas-density-calculator-r.streamlit.app/" target="_blank">Gas Density Calculator</a></li>
+
+    <li>
+      <div class="tooltip">
+        <a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" target="_blank">Scatter Plotter</a>
+        <span class="tooltiptext">great interactive plotting tool for excel and csv files</span>
+      </div>
+    </li>
+
+    <li>
+      <div class="tooltip">
+        <a href="https://amsamms-general-machine-learning-algorithm-main-rs6nt9.streamlit.app/" target="_blank">Simple Machine Learner</a>
+        <span class="tooltiptext">simple start for machine learning realm no previous experience is required</span>
+      </div>
+    </li>
+
+    <li>
+      <div class="tooltip">
+        <a href="https://datasetanalysis-0.streamlit.app/" target="_blank">Dataset Analysis</a>
+        <span class="tooltiptext">upload excel or csv file and a dynamic report will be generated</span>
+      </div>
+    </li>
+
+    <li>
+      <div class="tooltip">
+        <a href="https://unit-converter-engineering.streamlit.app/" target="_blank">Unit Converter</a>
+        <span class="tooltiptext">universal converter up to 3 combined units, easy to use with examples</span>
+      </div>
+    </li>
+
+    <li>
+      <div class="tooltip">
+        <a href="https://gas-density-calculator-r.streamlit.app/" target="_blank">Gas Calculator</a>
+        <span class="tooltiptext">input is gas composition and the output is density, molecular weight, CP, CV, mass fraction and much more</span>
+      </div>
+    </li>
+
   </ul>
+
+  <h2>AI Assistants</h2>
+
+  <ul>
+    <li>
+      <div class="tooltip">
+        <a href="https://poe.com/Refinery_expert" target="_blank">Refinery Expert</a>
+        <span class="tooltiptext">ask anything about petroleum refining, Artificial intellegence will answer with reference books or papers, based on GPT 3.5. You have to be a POE free subsciber</span>
+      </div>
+    </li>    
+
+    <li>
+      <div class="tooltip">
+        <a href="https://poe.com/Refinery_expert_II" target="_blank">Refinery Advanced Expert (Subscribers Only)</a>
+        <span class="tooltiptext">Same as Refinery Expert but based on GPT 4 , so you have to be a POE premium subscriber, this should be always the first choice as it is more advanced than refinery expert bot</span>
+      </div>
+    </li>    
+  </ul>
+
   <div class="signature">
     Ahmed Mohamed Sabri <br>
     Senior Process Engineer <br>
     amsamms
   </div>
+
 </body>
 </html>
