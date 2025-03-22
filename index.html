@@ -6,7 +6,6 @@
   <title>My Web Apps</title>
 
   <style>
-
     /* Tooltip styling */
     .tooltip {
       position: relative;
@@ -25,7 +24,7 @@
       z-index: 1;
       top: -5px;
       left: 105%;
-     /* Font styling */
+      /* Font styling */
       font-family: Arial, sans-serif; 
       font-size: 13px;
     }
@@ -35,7 +34,6 @@
     }
 
     /* Rest of styling */
-
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #a1c4fd, #c2e9fb);
@@ -77,6 +75,43 @@
       font-size: 24px;
     }
 
+    /* Hidden apps styling */
+    .hidden-apps {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: linear-gradient(to right, #f093fb, #f5576c);
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    }
+
+    .hidden-apps h2 {
+      color: white;
+      margin-top: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .hidden-apps li {
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    }
+
+    /* Key indicator styling */
+    .key-indicator {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      display: none;
+    }
+
+    .key-active {
+      color: #43c6ac;
+      font-weight: bold;
+    }
   </style>
 
 </head>
@@ -86,7 +121,6 @@
   <h1>Web Apps</h1>
 
   <ul>
-
     <li>
       <div class="tooltip">
         <a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" target="_blank">Scatter Plotter</a>
@@ -164,13 +198,12 @@
         <span class="tooltiptext"> Chatbot i created using streamlit app to make use of gpt-04 and 3.5 abilities (you must have an openai API). </span>
       </div>
     </li>
-      <li>
-    <div class="tooltip">
-      <a href="https://assistant-api-sabri.streamlit.app//" target="_blank">chatbot using assistant API (Subscribers Only)</a>
-      <span class="tooltiptext"> Chatbot i created using streamlit app to make use of assistant API that openai made (you must have an openai API). </span>
-    </div>
-  </li>
-
+    <li>
+      <div class="tooltip">
+        <a href="https://assistant-api-sabri.streamlit.app//" target="_blank">chatbot using assistant API (Subscribers Only)</a>
+        <span class="tooltiptext"> Chatbot i created using streamlit app to make use of assistant API that openai made (you must have an openai API). </span>
+      </div>
+    </li>
   </ul>
 
   <h2>AI Assistants</h2>
@@ -213,7 +246,6 @@
         <span class="tooltiptext">Utilize API 520 part I , II, 521 and 526 to design and select safety valves. (CHATGPT PLUS SUBSCRIBERS). </span>
       </div>
     </li>
-    </li>
     <li>
       <div class="tooltip">
         <a href="https://chat.openai.com/g/g-GQ2ziq3Ak-fired-heater-expert" target="_blank">FIRED HEATER Expert GPT (Subscribers Only)</a>
@@ -226,7 +258,6 @@
         <span class="tooltiptext">Answers all questions about HYSYS, additionally you can take screenshot from hsys and ask for explainations. (CHATGPT PLUS SUBSCRIBERS). </span>
       </div>
     </li>
-
     <li>
       <div class="tooltip">
         <a href="https://chat.openai.com/g/g-V3713dVbQ-new-concept-simplifier" target="_blank">New concept simplifier GPTs (Subscribers Only)</a>
@@ -251,15 +282,104 @@
         <span class="tooltiptext">Creates and explains Python-compatible regex formulas. (CHATGPT PLUS SUBSCRIBERS). </span>
       </div>
     </li>
-
-
   </ul>
+
+  <!-- Hidden apps section that will be revealed with hotkeys -->
+  <div id="hidden-apps" class="hidden-apps">
+    <h2>Private Apps</h2>
+    <ul>
+      <li>
+        <div class="tooltip">
+          <a href="https://movie-retriever.streamlit.app/" target="_blank">Movie retriever</a>
+          <span class="tooltiptext">retrieve data about any movie using Movies data base API</span>
+        </div>
+      </li>
+      <li>
+        <div class="tooltip">
+          <a href="https://h2-prediction.streamlit.app/" target="_blank">H2 predictor for recycle gas in platformer unit</a>
+          <span class="tooltiptext">Depi project for prediction hydrogen content from macro only </span>
+        </div>
+      </li>
+      <li>
+        <div class="tooltip">
+          <a href="https://example.com/private-app3" target="_blank">Private App 3</a>
+          <span class="tooltiptext">High-security app with restricted access</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Key indicator -->
+  <div id="key-indicator" class="key-indicator">
+    <span id="key-a">A</span> + <span id="key-m">S</span> + <span id="key-s">F</span>
+  </div>
 
   <div class="signature">
     Ahmed Mohamed Sabri <br>
     Senior Process Engineer <br>
     amsamms
   </div>
+
+  <script>
+    // Hot key functionality
+    const keysPressed = {
+      'a': false,
+      's': false,
+      'f': false
+    };
+
+    const keyIndicator = document.getElementById('key-indicator');
+    const keyAIndicator = document.getElementById('key-a');
+    const keyMIndicator = document.getElementById('key-s');
+    const keySIndicator = document.getElementById('key-f');
+    const hiddenApps = document.getElementById('hidden-apps');
+    
+    // Function to check if all required keys are pressed
+    function checkHotkeys() {
+      if (keysPressed['a'] && keysPressed['s'] && keysPressed['f']) {
+        hiddenApps.style.display = 'block';
+      } else {
+        hiddenApps.style.display = 'none';
+      }
+      
+      // Update key indicators
+      keyAIndicator.className = keysPressed['a'] ? 'key-active' : '';
+      keyMIndicator.className = keysPressed['s'] ? 'key-active' : '';
+      keySIndicator.className = keysPressed['f'] ? 'key-active' : '';
+    }
+    
+    // Event listeners for keydown
+    document.addEventListener('keydown', function(event) {
+      // Convert key to lowercase for case-insensitive matching
+      const key = event.key.toLowerCase();
+      
+      if (key === 'a' || key === 's' || key === 'f') {
+        keysPressed[key] = true;
+        keyIndicator.style.display = 'block';
+        checkHotkeys();
+      }
+    });
+    
+    // Event listeners for keyup
+    document.addEventListener('keyup', function(event) {
+      const key = event.key.toLowerCase();
+      
+      if (key === 'a' || key === 's' || key === 'f') {
+        keysPressed[key] = false;
+        checkHotkeys();
+        
+        // Hide indicator if no keys are pressed
+        if (!keysPressed['a'] && !keysPressed['s'] && !keysPressed['f']) {
+          keyIndicator.style.display = 'none';
+        }
+      }
+    });
+    
+    // Hide hidden apps when page loads
+    window.onload = function() {
+      hiddenApps.style.display = 'none';
+    };
+  </script>
 
 </body>
 </html>
