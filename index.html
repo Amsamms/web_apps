@@ -4,382 +4,294 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Web Apps</title>
-
-  <style>
-    /* Tooltip styling */
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 200px;
-      background-color: black;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 5px;
-      position: absolute;
-      z-index: 1;
-      top: -5px;
-      left: 105%;
-      /* Font styling */
-      font-family: Arial, sans-serif; 
-      font-size: 13px;
-    }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-    }
-
-    /* Rest of styling */
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-      padding: 20px;
-      color: #333;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
-      background: linear-gradient(to right, #f8ffae, #43c6ac);
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
-    }
-
-    li:hover {
-      box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
-    }
-
-    a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #0056b3;
-    }
-
-    .signature {
-      font-family: 'Brush Script MT', cursive;
-      text-align: right;
-      margin-top: 50px;
-      font-size: 24px;
-    }
-
-    /* Hidden apps styling */
-    .hidden-apps {
-      display: none;
-      margin-top: 30px;
-      padding: 20px;
-      background: linear-gradient(to right, #f093fb, #f5576c);
-      border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-    }
-
-    .hidden-apps h2 {
-      color: white;
-      margin-top: 0;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .hidden-apps li {
-      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-    }
-
-    /* Key indicator styling */
-    .key-indicator {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      display: none;
-    }
-
-    .key-active {
-      color: #43c6ac;
-      font-weight: bold;
-    }
-  </style>
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-  <h1>Web Apps</h1>
-
-  <ul>
-    <li>
-      <div class="tooltip">
-        <a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" target="_blank">Scatter Plotter</a>
-        <span class="tooltiptext">great interactive plotting tool for excel and csv files</span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://amsamms-general-machine-learning-algorithm-main-rs6nt9.streamlit.app/" target="_blank">Simple Machine Learner</a>
-        <span class="tooltiptext">simple start for machine learning realm no previous experience is required</span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://datasetanalysis-0.streamlit.app/" target="_blank">Dataset Analysis</a>
-        <span class="tooltiptext">upload excel or csv file and a dynamic report will be generated</span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://pdf-table-extract.streamlit.app/" target="_blank">PDF tables extractor</a>
-        <span class="tooltiptext">upload pdf file and extract all tables from that document to downloadable csv or excel file </span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://images-table-extractor.streamlit.app/" target="_blank">Image tables extractor</a>
-        <span class="tooltiptext">upload PNG, JPEG, JPG file and extract all tables from that photo to downloadable csv file </span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://unit-converter-engineering.streamlit.app/" target="_blank">Unit Converter</a>
-        <span class="tooltiptext">universal converter up to 3 combined units, easy to use with examples</span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://gas-density-calculator-r.streamlit.app/" target="_blank">Gas Calculator</a>
-        <span class="tooltiptext">input is gas composition and the output is density, molecular weight, CP, CV, mass fraction and much more</span>
-      </div>
-    </li>
-
-    <li>
-      <div class="tooltip">
-        <a href="https://envelopplotter.streamlit.app/" target="_blank">Equilibrium Envelope</a>
-        <span class="tooltiptext">input gas composition, pressure, temperature and desired equation of state and get the plot of equilibrium envelope</span>
-      </div>      
-    </li>
+  <div id="threejs-container"></div>
+  <div class="container">
+    <h1>Web Apps</h1>
     
-    <li>
-      <div class="tooltip">
-        <a href="https://liquid-control-valves-eval.streamlit.app/" target="_blank">Liquid control valve evaluation</a>
-        <span class="tooltiptext">Estimate flowrate in existing control valves and check chocke flow conditions according to actual operating conditions</span>
-      </div>
-    </li>
-    
-    <li>
-      <div class="tooltip">
-        <a href="https://gas-control-valves-evaluation.streamlit.app//" target="_blank">Gas control valve evaluation</a>
-        <span class="tooltiptext">Estimate flowrate in existing control valves and check chocke flow conditions according to actual operating conditions</span>
-      </div>
-    </li>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search apps..." id="searchInput">
+    </div>
 
-    
-    <li>
-      <div class="tooltip">
-        <a href="https://sabri-gpt-chatbot.streamlit.app/" target="_blank">chatbot using gpt-4o (Subscribers Only)</a>
-        <span class="tooltiptext"> Chatbot i created using streamlit app to make use of gpt-04 and 3.5 abilities (you must have an openai API). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://assistant-api-sabri.streamlit.app//" target="_blank">chatbot using assistant API (Subscribers Only)</a>
-        <span class="tooltiptext"> Chatbot i created using streamlit app to make use of assistant API that openai made (you must have an openai API). </span>
-      </div>
-    </li>
-  </ul>
+    <div class="loading">
+      <div class="loading-spinner"></div>
+    </div>
 
-  <h2>AI Assistants</h2>
+    <div class="apps-grid" id="appsGrid">
+      <!-- Web Apps Section -->
+      <section class="app-section">
+        <h2 class="category-title">Web Applications</h2>
+        <div class="app-cards">
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" target="_blank" class="app-link">Scatter Plotter</a>
+              <span class="tooltiptext">great interactive plotting tool for excel and csv files</span>
+            </div>
+          </div>
 
-  <ul>
-    <li>
-      <div class="tooltip">
-        <a href="https://poe.com/Refinery_expert" target="_blank">Refinery Expert</a>
-        <span class="tooltiptext">ask anything about petroleum refining, Artificial intellegence will answer with reference books or papers, based on GPT 3.5. You have to be a POE free subsciber</span>
-      </div>
-    </li>    
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://amsamms-general-machine-learning-algorithm-main-rs6nt9.streamlit.app/" target="_blank" class="app-link">Simple Machine Learner</a>
+              <span class="tooltiptext">simple start for machine learning realm no previous experience is required</span>
+            </div>
+          </div>
 
-    <li>
-      <div class="tooltip">
-        <a href="https://poe.com/Refinery_expert_II" target="_blank">Refinery Advanced Expert (Subscribers Only)</a>
-        <span class="tooltiptext">Same as Refinery Expert but based on GPT 4 , so you have to be a POE premium subscriber, this should be always the first choice as it is more advanced than refinery expert bot</span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-qJMwAmzZE-oil-refinery-expert" target="_blank">Oil Refinery Expert GPT (Subscribers Only)</a>
-        <span class="tooltiptext">Answers all questions about oil refining and processing. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-sReBS7WaY-gpsa-expert" target="_blank">GPSA Expert GPT (Subscribers Only)</a>
-        <span class="tooltiptext">Answers all questions from GPSA. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chatgpt.com/g/g-8EApuDlTv-rule-of-thumb-for-chemical-engineers" target="_blank">Rule of thumb for chemical engineers (Subscribers Only)</a>
-        <span class="tooltiptext">Answers all questions from Rule of thumb for chemical engineers. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-kSjcS3y6E-api-psv-design-and-selection" target="_blank">API PSV design and selection GPT (Subscribers Only)</a>
-        <span class="tooltiptext">Utilize API 520 part I , II, 521 and 526 to design and select safety valves. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-GQ2ziq3Ak-fired-heater-expert" target="_blank">FIRED HEATER Expert GPT (Subscribers Only)</a>
-        <span class="tooltiptext">Expert in fired heater design and calculations for oil & gas, Utilize API 530, 535, 560 ,556 and 573. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-3iNruHIyF-hysys-screenshot-explainer" target="_blank">HYSYS tutor/screenshot explainer GPTs (Subscribers Only)</a>
-        <span class="tooltiptext">Answers all questions about HYSYS, additionally you can take screenshot from hsys and ask for explainations. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-V3713dVbQ-new-concept-simplifier" target="_blank">New concept simplifier GPTs (Subscribers Only)</a>
-        <span class="tooltiptext">Simplifies new concepts using relatable analogies, then details them further on request (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-PfH1RpIrK-pdf-to-excel-equations-transformer" target="_blank">PDF to EXCEL equations transformer GPTs (Subscribers Only)</a>
-        <span class="tooltiptext">Transforms PDF equations into Excel formulas with color-coded inputs and outputs, excel file can then be downloaded. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-t7Ncd9vyV-bad-mood-mail-creator" target="_blank">Bad mood mail creator GPTs (Subscribers Only)</a>
-        <span class="tooltiptext">Crafts professional, assertive emails from user's inputs. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-    <li>
-      <div class="tooltip">
-        <a href="https://chat.openai.com/g/g-jzaXyG8Gn-regex-creator-analyzer" target="_blank">REGEX Creator/Analyzer GPTs (Subscribers Only)</a>
-        <span class="tooltiptext">Creates and explains Python-compatible regex formulas. (CHATGPT PLUS SUBSCRIBERS). </span>
-      </div>
-    </li>
-  </ul>
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://datasetanalysis-0.streamlit.app/" target="_blank" class="app-link">Dataset Analysis</a>
+              <span class="tooltiptext">upload excel or csv file and a dynamic report will be generated</span>
+            </div>
+          </div>
 
-  <!-- Hidden apps section that will be revealed with hotkeys -->
-  <div id="hidden-apps" class="hidden-apps">
-    <h2>Private Apps</h2>
-    <ul>
-      <li>
-        <div class="tooltip">
-          <a href="https://movie-retriever.streamlit.app/" target="_blank">Movie retriever</a>
-          <span class="tooltiptext">retrieve data about any movie using Movies data base API</span>
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://pdf-table-extract.streamlit.app/" target="_blank" class="app-link">PDF tables extractor</a>
+              <span class="tooltiptext">upload pdf file and extract all tables from that document to downloadable csv or excel file</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://images-table-extractor.streamlit.app/" target="_blank" class="app-link">Image tables extractor</a>
+              <span class="tooltiptext">upload PNG, JPEG, JPG file and extract all tables from that photo to downloadable csv file</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://unit-converter-engineering.streamlit.app/" target="_blank" class="app-link">Unit Converter</a>
+              <span class="tooltiptext">universal converter up to 3 combined units, easy to use with examples</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://gas-density-calculator-r.streamlit.app/" target="_blank" class="app-link">Gas Calculator</a>
+              <span class="tooltiptext">input is gas composition and the output is density, molecular weight, CP, CV, mass fraction and much more</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://envelopplotter.streamlit.app/" target="_blank" class="app-link">Equilibrium Envelope</a>
+              <span class="tooltiptext">input gas composition, pressure, temperature and desired equation of state and get the plot of equilibrium envelope</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://liquid-control-valves-eval.streamlit.app/" target="_blank" class="app-link">Liquid control valve evaluation</a>
+              <span class="tooltiptext">Estimate flowrate in existing control valves and check chocke flow conditions according to actual operating conditions</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://gas-control-valves-evaluation.streamlit.app//" target="_blank" class="app-link">Gas control valve evaluation</a>
+              <span class="tooltiptext">Estimate flowrate in existing control valves and check chocke flow conditions according to actual operating conditions</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://sabri-gpt-chatbot.streamlit.app/" target="_blank" class="app-link">chatbot using gpt-4o (Subscribers Only)</a>
+              <span class="tooltiptext">Chatbot i created using streamlit app to make use of gpt-04 and 3.5 abilities (you must have an openai API)</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://assistant-api-sabri.streamlit.app//" target="_blank" class="app-link">chatbot using assistant API (Subscribers Only)</a>
+              <span class="tooltiptext">Chatbot i created using streamlit app to make use of assistant API that openai made (you must have an openai API)</span>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <div class="tooltip">
-          <a href="https://h2-prediction.streamlit.app/" target="_blank">H2 predictor for recycle gas in platformer unit</a>
-          <span class="tooltiptext">Depi project for prediction hydrogen content from macro only </span>
+      </section>
+
+      <section class="app-section">
+        <h2 class="category-title">AI Assistants</h2>
+        <div class="app-cards">
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://poe.com/Refinery_expert" target="_blank" class="app-link">Refinery Expert</a>
+              <span class="tooltiptext">ask anything about petroleum refining, Artificial intellegence will answer with reference books or papers, based on GPT 3.5. You have to be a POE free subsciber</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://poe.com/Refinery_expert_II" target="_blank" class="app-link">Refinery Advanced Expert (Subscribers Only)</a>
+              <span class="tooltiptext">Same as Refinery Expert but based on GPT 4, so you have to be a POE premium subscriber, this should be always the first choice as it is more advanced than refinery expert bot</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://chat.openai.com/g/g-qJMwAmzZE-oil-refinery-expert" target="_blank" class="app-link">Oil Refinery Expert GPT (Subscribers Only)</a>
+              <span class="tooltiptext">Answers all questions about oil refining and processing. (CHATGPT PLUS SUBSCRIBERS)</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://chat.openai.com/g/g-sReBS7WaY-gpsa-expert" target="_blank" class="app-link">GPSA Expert GPT (Subscribers Only)</a>
+              <span class="tooltiptext">Answers all questions from GPSA. (CHATGPT PLUS SUBSCRIBERS)</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://chatgpt.com/g/g-8EApuDlTv-rule-of-thumb-for-chemical-engineers" target="_blank" class="app-link">Rule of thumb for chemical engineers (Subscribers Only)</a>
+              <span class="tooltiptext">Answers all questions from Rule of thumb for chemical engineers. (CHATGPT PLUS SUBSCRIBERS)</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://chat.openai.com/g/g-kSjcS3y6E-api-psv-design-and-selection" target="_blank" class="app-link">API PSV design and selection GPT (Subscribers Only)</a>
+              <span class="tooltiptext">Utilize API 520 part I, II, 521 and 526 to design and select safety valves. (CHATGPT PLUS SUBSCRIBERS)</span>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <div class="tooltip">
-          <a href="https://example.com/private-app3" target="_blank">Private App 3</a>
-          <span class="tooltiptext">High-security app with restricted access</span>
+      </section>
+
+      <!-- Hidden apps section that will be revealed with hotkeys -->
+      <section id="hidden-apps" class="app-section hidden-apps">
+        <h2 class="category-title">Private Apps</h2>
+        <div class="app-cards">
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://movie-retriever.streamlit.app/" target="_blank" class="app-link">Movie retriever</a>
+              <span class="tooltiptext">retrieve data about any movie using Movies data base API</span>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://h2-prediction.streamlit.app/" target="_blank" class="app-link">H2 predictor for recycle gas in platformer unit</a>
+              <span class="tooltiptext">Depi project for prediction hydrogen content from macro only</span>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="tooltip">
+              <a href="https://example.com/private-app3" target="_blank" class="app-link">Private App 3</a>
+              <span class="tooltiptext">High-security app with restricted access</span>
+            </div>
+          </div>
         </div>
-      </li>
-    </ul>
+      </section>
+
+      <!-- Key indicator -->
+      <div id="key-indicator" class="key-indicator">
+        <span id="key-a">A</span> + <span id="key-s">S</span> + <span id="key-f">F</span>
+      </div>
+    </div>
+
+    <div class="signature">- Amsamms</div>
   </div>
 
-  <!-- Key indicator -->
-  <div id="key-indicator" class="key-indicator">
-    <span id="key-a">A</span> + <span id="key-m">S</span> + <span id="key-s">F</span>
-  </div>
-
-  <div class="signature">
-    Ahmed Mohamed Sabri <br>
-    Senior Process Engineer <br>
-    amsamms
-  </div>
-
+  <script type="module" src="background.js"></script>
   <script>
-    // Hot key functionality
-    const keysPressed = {
-      'a': false,
-      's': false,
-      'f': false
-    };
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const appCards = document.querySelectorAll('.app-card');
+      const loading = document.querySelector('.loading');
+      const hiddenApps = document.getElementById('hidden-apps');
+      const keyIndicator = document.getElementById('key-indicator');
+      const keyAIndicator = document.getElementById('key-a');
+      const keySIndicator = document.getElementById('key-s');
+      const keyFIndicator = document.getElementById('key-f');
 
-    const keyIndicator = document.getElementById('key-indicator');
-    const keyAIndicator = document.getElementById('key-a');
-    const keyMIndicator = document.getElementById('key-s');
-    const keySIndicator = document.getElementById('key-f');
-    const hiddenApps = document.getElementById('hidden-apps');
-    
-    // Function to check if all required keys are pressed
-    function checkHotkeys() {
-      if (keysPressed['a'] && keysPressed['s'] && keysPressed['f']) {
-        hiddenApps.style.display = 'block';
-      } else {
-        hiddenApps.style.display = 'none';
-      }
-      
-      // Update key indicators
-      keyAIndicator.className = keysPressed['a'] ? 'key-active' : '';
-      keyMIndicator.className = keysPressed['s'] ? 'key-active' : '';
-      keySIndicator.className = keysPressed['f'] ? 'key-active' : '';
-    }
-    
-    // Event listeners for keydown
-    document.addEventListener('keydown', function(event) {
-      // Convert key to lowercase for case-insensitive matching
-      const key = event.key.toLowerCase();
-      
-      if (key === 'a' || key === 's' || key === 'f') {
-        keysPressed[key] = true;
-        keyIndicator.style.display = 'block';
-        checkHotkeys();
-      }
-    });
-    
-    // Event listeners for keyup
-    document.addEventListener('keyup', function(event) {
-      const key = event.key.toLowerCase();
-      
-      if (key === 'a' || key === 's' || key === 'f') {
-        keysPressed[key] = false;
-        checkHotkeys();
-        
-        // Hide indicator if no keys are pressed
-        if (!keysPressed['a'] && !keysPressed['s'] && !keysPressed['f']) {
-          keyIndicator.style.display = 'none';
+      // Hot key functionality
+      const keysPressed = {
+        'a': false,
+        's': false,
+        'f': false
+      };
+
+      // Function to check if all required keys are pressed
+      function checkHotkeys() {
+        if (keysPressed['a'] && keysPressed['s'] && keysPressed['f']) {
+          hiddenApps.style.display = 'block';
+          hiddenApps.classList.add('fade-in');
+        } else {
+          hiddenApps.style.display = 'none';
         }
+        
+        // Update key indicators
+        keyAIndicator.className = keysPressed['a'] ? 'key-active' : '';
+        keySIndicator.className = keysPressed['s'] ? 'key-active' : '';
+        keyFIndicator.className = keysPressed['f'] ? 'key-active' : '';
       }
-    });
-    
-    // Hide hidden apps when page loads
-    window.onload = function() {
-      hiddenApps.style.display = 'none';
-    };
-  </script>
 
+      // Event listeners for keydown
+      document.addEventListener('keydown', function(event) {
+        const key = event.key.toLowerCase();
+        
+        if (key === 'a' || key === 's' || key === 'f') {
+          keysPressed[key] = true;
+          keyIndicator.style.display = 'block';
+          checkHotkeys();
+        }
+      });
+
+      // Event listeners for keyup
+      document.addEventListener('keyup', function(event) {
+        const key = event.key.toLowerCase();
+        
+        if (key === 'a' || key === 's' || key === 'f') {
+          keysPressed[key] = false;
+          checkHotkeys();
+          
+          // Hide indicator if no keys are pressed
+          if (!keysPressed['a'] && !keysPressed['s'] && !keysPressed['f']) {
+            keyIndicator.style.display = 'none';
+          }
+        }
+      });
+
+      // Add fade-in animation to cards
+      appCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.classList.add('fade-in');
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        loading.style.display = 'block';
+
+        setTimeout(() => {
+          appCards.forEach(card => {
+            const link = card.querySelector('.app-link');
+            const tooltip = card.querySelector('.tooltiptext');
+            const text = (link.textContent + ' ' + tooltip.textContent).toLowerCase();
+            
+            if (text.includes(searchTerm)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          loading.style.display = 'none';
+        }, 300);
+      });
+
+      // Add hover effect to cards
+      appCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-3px)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
