@@ -292,8 +292,8 @@
           </div>
           <div class="app-card">
             <div class="tooltip">
-              <a href="#" target="_blank" class="app-link">Private App 2</a>
-              <span class="tooltiptext">Description for Private App 2</span>
+              <a href="https://amsamms.github.io/Platforming_technologies/" target="_blank" class="app-link">Platforming Technologies</a>
+              <span class="tooltiptext">Interactive web application explaining platforming technologies in petroleum refining with comprehensive resources and visual guides</span>
             </div>
           </div>
           <div class="app-card">
@@ -305,10 +305,6 @@
         </div>
       </section>
 
-      <!-- Key indicator -->
-      <div id="key-indicator" class="key-indicator">
-        <span id="key-a">A</span> + <span id="key-s">S</span> + <span id="key-f">F</span>
-      </div>
     </div>
 
     <div class="signature">- Amsamms</div>
@@ -321,56 +317,95 @@
       const appCards = document.querySelectorAll('.app-card');
       const loading = document.querySelector('.loading');
       const hiddenApps = document.getElementById('hidden-apps');
-      const keyIndicator = document.getElementById('key-indicator');
-      const keyAIndicator = document.getElementById('key-a');
-      const keySIndicator = document.getElementById('key-s');
-      const keyFIndicator = document.getElementById('key-f');
 
-      // Hot key functionality
-      const keysPressed = {
-        'a': false,
-        's': false,
-        'f': false
-      };
-
-      // Function to check if all required keys are pressed
-      function checkHotkeys() {
-        if (keysPressed['a'] && keysPressed['s'] && keysPressed['f']) {
-          hiddenApps.style.display = 'block';
-          hiddenApps.classList.add('fade-in');
-        } else {
-          hiddenApps.style.display = 'none';
-        }
+      // Multi-tap functionality
+      let tapCount = 0;
+      let tapTimer = null;
+      const requiredTaps = 8; // Require 8 taps
+      const tapTimeout = 2000; // Reset after 2 seconds
+      
+      // Get the title element for tapping
+      const titleElement = document.querySelector('h1'); // "Web Apps" title
+      
+      // Function to show toast notification
+      function showToast(message) {
+        const toast = document.createElement('div');
+        toast.textContent = message;
+        toast.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #333;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          z-index: 1000;
+          opacity: 0;
+          transition: opacity 0.3s;
+          font-size: 14px;
+        `;
         
-        // Update key indicators
-        keyAIndicator.className = keysPressed['a'] ? 'key-active' : '';
-        keySIndicator.className = keysPressed['s'] ? 'key-active' : '';
-        keyFIndicator.className = keysPressed['f'] ? 'key-active' : '';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.style.opacity = '1', 100);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          setTimeout(() => document.body.removeChild(toast), 300);
+        }, 2000);
       }
 
-      // Event listeners for keydown
-      document.addEventListener('keydown', function(event) {
-        const key = event.key.toLowerCase();
+      // Add tap functionality to title
+      titleElement.addEventListener('click', function(e) {
+        // Prevent normal link behavior if any
+        e.preventDefault();
         
-        if (key === 'a' || key === 's' || key === 'f') {
-          keysPressed[key] = true;
-          keyIndicator.style.display = 'block';
-          checkHotkeys();
+        tapCount++;
+        
+        // Clear existing timer
+        if (tapTimer) {
+          clearTimeout(tapTimer);
         }
-      });
-
-      // Event listeners for keyup
-      document.addEventListener('keyup', function(event) {
-        const key = event.key.toLowerCase();
         
-        if (key === 'a' || key === 's' || key === 'f') {
-          keysPressed[key] = false;
-          checkHotkeys();
+        // Visual feedback - small scale animation
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 100);
+        
+        // Optional: Add a subtle color change to indicate tap
+        this.style.color = '#3b82f6';
+        setTimeout(() => {
+          this.style.color = '';
+        }, 200);
+        
+        console.log(`Tap ${tapCount}/${requiredTaps}`); // For debugging
+        
+        if (tapCount >= requiredTaps) {
+          // Show hidden apps
+          hiddenApps.style.display = 'block';
+          hiddenApps.classList.add('fade-in');
           
-          // Hide indicator if no keys are pressed
-          if (!keysPressed['a'] && !keysPressed['s'] && !keysPressed['f']) {
-            keyIndicator.style.display = 'none';
+          // Reset counter
+          tapCount = 0;
+          
+          // Show success message
+          showToast('Private apps unlocked! 🔓');
+          
+          // Optional: scroll to private apps section
+          setTimeout(() => {
+            hiddenApps.scrollIntoView({ behavior: 'smooth' });
+          }, 500);
+          
+        } else {
+          // Show progress for user feedback
+          if (tapCount > 1) {
+            showToast(`${tapCount}/${requiredTaps} taps...`);
           }
+          
+          // Reset counter after timeout
+          tapTimer = setTimeout(() => {
+            tapCount = 0;
+            console.log('Tap counter reset'); // For debugging
+          }, tapTimeout);
         }
       });
 
