@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0, minimum-scale=1.0">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Web Apps">
   <title>My Web Apps</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -396,6 +400,11 @@
         
         tapCount++;
         
+        // Add haptic feedback for mobile (if supported)
+        if ('vibrate' in navigator) {
+          navigator.vibrate(50);
+        }
+        
         // Clear existing timer
         if (tapTimer) {
           clearTimeout(tapTimer);
@@ -419,6 +428,9 @@
           // Show hidden apps
           hiddenApps.style.display = 'block';
           hiddenApps.classList.add('fade-in');
+          
+          // Mark as unlocked to hide the hint
+          document.body.classList.add('unlocked');
           
           // Reset counter
           tapCount = 0;
