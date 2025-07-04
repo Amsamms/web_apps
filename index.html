@@ -365,6 +365,33 @@
 
     </div>
 
+    <!-- Donation Section -->
+    <div class="donation-section">
+      <h3 class="donation-title">Support This Work</h3>
+      <p class="donation-text">
+        All these applications and resources are provided completely free of charge. 
+        If you find them valuable and would like to encourage continued development, 
+        any small contribution would be greatly appreciated! 🙏
+      </p>
+      <div class="donation-buttons">
+        <a href="#" onclick="handleDonation(2)" class="donation-btn">
+          <span class="donation-amount">$2</span>
+          <span class="donation-label">Coffee ☕</span>
+        </a>
+        <a href="#" onclick="handleDonation(5)" class="donation-btn">
+          <span class="donation-amount">$5</span>
+          <span class="donation-label">Lunch 🍽️</span>
+        </a>
+        <a href="#" onclick="handleDonation(10)" class="donation-btn">
+          <span class="donation-amount">$10</span>
+          <span class="donation-label">Support 💖</span>
+        </a>
+      </div>
+      <p class="donation-note">
+        <small>Powered by PayPal - Secure & Easy</small>
+      </p>
+    </div>
+
     <div class="signature">- Amsamms</div>
   </div>
 
@@ -512,6 +539,104 @@
           this.style.transform = 'translateY(0)';
         });
       });
+    });
+
+    // Donation handling function
+    function handleDonation(amount) {
+      // Show thank you modal first
+      showThankYouModal(amount);
+      
+      // Open PayPal in new tab after a short delay
+      setTimeout(() => {
+        window.open(`https://paypal.me/AhmedSabri85/${amount}`, '_blank');
+      }, 1000);
+    }
+
+    function showThankYouModal(amount) {
+      // Create modal backdrop
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+      `;
+
+      // Create modal content
+      const modalContent = document.createElement('div');
+      modalContent.style.cssText = `
+        background: linear-gradient(135deg, #1e293b, #334155);
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        color: #f8fafc;
+      `;
+
+      modalContent.innerHTML = `
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🙏</div>
+        <h2 style="color: #db2777; margin-bottom: 1rem; font-size: 1.5rem;">Thank You So Much!</h2>
+        <p style="margin-bottom: 1.5rem; line-height: 1.6;">
+          Your $${amount} contribution means the world to me! As a special thank you, 
+          here's a little secret... 🤫
+        </p>
+        <div style="background: rgba(79, 70, 229, 0.2); border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(79, 70, 229, 0.3);">
+          <p style="font-weight: 600; color: #4f46e5; margin-bottom: 0.5rem;">🔓 Secret Tip:</p>
+          <p style="font-size: 0.9rem;">Tap the "Web Apps" title <strong>8 times</strong> to unlock a hidden private section with exclusive apps and resources!</p>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 1.5rem;">
+          You'll be redirected to PayPal to complete your donation in a few seconds...
+        </p>
+        <button onclick="closeModal()" style="
+          background: linear-gradient(135deg, #4f46e5, #7c3aed);
+          color: white;
+          border: none;
+          padding: 0.8rem 1.5rem;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+          transition: transform 0.2s ease;
+        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          Got it! 🚀
+        </button>
+      `;
+
+      modal.appendChild(modalContent);
+      document.body.appendChild(modal);
+
+      // Auto close after 12 seconds
+      setTimeout(() => {
+        if (document.body.contains(modal)) {
+          document.body.removeChild(modal);
+        }
+      }, 12000);
+
+      // Make modal globally accessible for closing
+      window.currentModal = modal;
+    }
+
+    function closeModal() {
+      if (window.currentModal && document.body.contains(window.currentModal)) {
+        document.body.removeChild(window.currentModal);
+        window.currentModal = null;
+      }
+    }
+
+    // Close modal on click outside
+    document.addEventListener('click', function(e) {
+      if (window.currentModal && e.target === window.currentModal) {
+        closeModal();
+      }
     });
   </script>
 </body>

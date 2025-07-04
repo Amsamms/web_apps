@@ -525,3 +525,115 @@ html {
     transform: scale(0.98);
   }
 }
+
+/* Donation Section Styles */
+.donation-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 3rem 0 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.donation-title {
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.donation-text {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.donation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.donation-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.donation-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+}
+
+.donation-amount {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.donation-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.donation-note {
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-top: 1rem;
+}
+
+/* Mobile responsiveness for donation section */
+@media (max-width: 768px) {
+  .donation-section {
+    padding: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .donation-buttons {
+    gap: 0.8rem;
+  }
+  
+  .donation-btn {
+    min-width: 80px;
+    padding: 0.8rem 1rem;
+  }
+  
+  .donation-amount {
+    font-size: 1rem;
+  }
+  
+  .donation-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .donation-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .donation-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
