@@ -57,10 +57,7 @@ cd web_apps
 - Searches through both app names and descriptions
 
 ### Accessing Private Apps
-1. Press and hold the following keys simultaneously:
-   - A
-   - S
-   - F
+1. Ask the chatbot :)
 2. The private apps section will appear with a smooth fade-in animation
 
 ### Visual Effects
