@@ -428,6 +428,40 @@
 
     </div>
 
+    <!-- Chatbot Section -->
+    <div id="chatbot-container" class="chatbot-container">
+      <div id="chatbot-toggle" class="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+      </div>
+      <div id="chatbot-window" class="chatbot-window hidden">
+        <div class="chatbot-header">
+          <h4>🤖 Web Apps Assistant</h4>
+          <div class="chatbot-header-buttons">
+            <button id="chatbot-clear" title="Clear Conversation" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; margin-right: 8px;">🗑️</button>
+            <button id="chatbot-close">×</button>
+          </div>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages">
+          <div class="message bot">
+            <div class="message-content">
+              Hi! I'm your Web Apps Assistant. 🤖 I can help you find the right app for your needs or answer questions about any of the applications. 
+              
+              <br><br><strong>Powered by Ministral 3B AI</strong> - I have complete knowledge of all apps and can help you find exactly what you need! Try asking about games, data analysis, engineering tools, or AI assistants.
+            </div>
+          </div>
+        </div>
+        <div class="chatbot-input-container">
+          <input type="text" id="chatbot-input" placeholder="Ask about any web app..." maxlength="500">
+          <button id="chatbot-send">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="chatbot-footer">
+          <small>Powered by Ministral 3B • Stateless & Context-Aware • Ultra Low-Cost AI</small>
+        </div>
+      </div>
+    </div>
+
     <!-- Donation Section -->
     <div class="donation-section">
       <h3 class="donation-title">Support This Work</h3>
@@ -701,6 +735,715 @@
         closeModal();
       }
     });
+
+    // Chatbot functionality
+    class WebAppsChatbot {
+      constructor() {
+        // Use Ministral 3B API - extremely cost-effective
+        this.useDemoMode = false; // Switch to real API
+        this.useMinistralAPI = true; // Use Ministral instead of Gemini
+        
+        // AI-POWERED RESPONSES ENABLED!
+        // API key configured for Mistral 3B
+        // Cost: Only $0.04 per million tokens (extremely cheap!)
+        this.apiKey = 'mnmKw0OPPoClTcjqaOpJDGO4ZLJLH93M'; // Your actual API key
+        
+        this.apiUrl = 'https://api.mistral.ai/v1/chat/completions';
+        this.model = 'ministral-3b-2410'; // Ministral 3B exact model version
+        this.isTyping = false;
+        this.requestCount = 0;
+        this.maxRequests = 10000; // Much higher since it's so cheap
+        
+        this.initializeElements();
+        this.attachEventListeners();
+      }
+
+      initializeElements() {
+        this.toggle = document.getElementById('chatbot-toggle');
+        this.window = document.getElementById('chatbot-window');
+        this.closeBtn = document.getElementById('chatbot-close');
+        this.clearBtn = document.getElementById('chatbot-clear');
+        this.messages = document.getElementById('chatbot-messages');
+        this.input = document.getElementById('chatbot-input');
+        this.sendBtn = document.getElementById('chatbot-send');
+      }
+
+      attachEventListeners() {
+        this.toggle.addEventListener('click', () => this.toggleWindow());
+        this.closeBtn.addEventListener('click', () => this.closeWindow());
+        this.clearBtn.addEventListener('click', () => this.clearConversation());
+        this.sendBtn.addEventListener('click', () => this.sendMessage());
+        this.input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.sendMessage();
+          }
+        });
+      }
+
+      toggleWindow() {
+        this.window.classList.toggle('hidden');
+        if (!this.window.classList.contains('hidden')) {
+          this.input.focus();
+        }
+      }
+
+      closeWindow() {
+        this.window.classList.add('hidden');
+      }
+
+      clearConversation() {
+        // Clear visual messages except the initial greeting
+        const messages = this.messages.querySelectorAll('.message');
+        messages.forEach((message, index) => {
+          if (index > 0) { // Keep the first message (greeting)
+            message.remove();
+          }
+        });
+        
+        // Show confirmation
+        this.addMessage('Chat cleared! 🧹 Each message is now processed independently with fresh context.', 'bot');
+        
+        console.log('Chat cleared. Each message is processed independently (stateless).');
+      }
+
+      async sendMessage() {
+        const message = this.input.value.trim();
+        if (!message || this.isTyping) return;
+
+        // Rate limiting check
+        if (this.requestCount >= this.maxRequests) {
+          this.addMessage('Rate limit reached. Please try again later.', 'bot');
+          return;
+        }
+
+        this.addMessage(message, 'user');
+        this.input.value = '';
+        this.input.disabled = true;
+        this.sendBtn.disabled = true;
+        
+        this.showTypingIndicator();
+        
+        try {
+          let response;
+          if (this.useDemoMode) {
+            response = await this.getDemoResponse(message);
+          } else if (this.useMinistralAPI) {
+            response = await this.callMinistralAPI(message);
+          } else {
+            response = await this.callGeminiAPI(message);
+          }
+          
+          this.hideTypingIndicator();
+          this.addMessage(response, 'bot');
+          
+          this.requestCount++;
+        } catch (error) {
+          this.hideTypingIndicator();
+          console.error('Chatbot error details:', error);
+          console.error('Error type:', typeof error);
+          console.error('Error stack:', error.stack);
+          
+          // Always try demo mode as fallback if API fails
+          try {
+            console.log('API failed, falling back to demo mode...');
+            const demoResponse = await this.getDemoResponse(message);
+            this.addMessage(demoResponse + '\n\n⚠️ API unavailable - using intelligent local processing', 'bot');
+            
+            this.requestCount++;
+            this.input.disabled = false;
+            this.sendBtn.disabled = false;
+            this.input.focus();
+            return;
+          } catch (demoError) {
+            console.error('Demo fallback also failed:', demoError);
+          }
+          
+          let errorMessage = 'Sorry, I encountered an error. ';
+          if (this.useDemoMode) {
+            errorMessage += 'Demo mode is active. For full functionality, please configure a valid Ministral API key.';
+          } else if (this.useMinistralAPI && error.message.includes('API key not configured')) {
+            errorMessage += 'Please configure your Ministral API key for AI-powered responses.';
+          } else if (error.message.includes('403')) {
+            errorMessage += 'API key issue or quota exceeded.';
+          } else if (error.message.includes('429')) {
+            errorMessage += 'Too many requests. Please wait a moment.';
+          } else if (error.message.includes('400')) {
+            errorMessage += 'Invalid request format.';
+          } else {
+            errorMessage += 'Please try again or check your connection.';
+            errorMessage += ` (Error: ${error.message})`;
+          }
+          
+          this.addMessage(errorMessage, 'bot');
+        }
+        
+        this.input.disabled = false;
+        this.sendBtn.disabled = false;
+        this.input.focus();
+      }
+
+      addMessage(content, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.textContent = content;
+        
+        messageDiv.appendChild(contentDiv);
+        this.messages.appendChild(messageDiv);
+        
+        this.messages.scrollTop = this.messages.scrollHeight;
+      }
+
+      showTypingIndicator() {
+        this.isTyping = true;
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot';
+        typingDiv.id = 'typing-indicator';
+        
+        typingDiv.innerHTML = `
+          <div class="typing-indicator">
+            <span>Assistant is typing</span>
+            <div class="typing-dots">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+          </div>
+        `;
+        
+        this.messages.appendChild(typingDiv);
+        this.messages.scrollTop = this.messages.scrollHeight;
+      }
+
+      hideTypingIndicator() {
+        this.isTyping = false;
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      async getDemoResponse(userMessage) {
+        console.log('getDemoResponse called with:', userMessage); // Debug log
+        
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+        
+        // Get the complete HTML content of the page to use as knowledge base
+        const getPageContent = () => {
+          const appsGrid = document.getElementById('appsGrid');
+          if (!appsGrid) return '';
+          
+          let pageContent = 'COMPLETE WEB APPS PORTFOLIO CONTENT:\n\n';
+          
+          // Get all sections
+          const sections = appsGrid.querySelectorAll('.app-section');
+          sections.forEach(section => {
+            const categoryTitle = section.querySelector('.category-title')?.textContent || '';
+            pageContent += `\n=== ${categoryTitle.toUpperCase()} ===\n`;
+            
+            // Get subcategories (for private apps)
+            const subcategories = section.querySelectorAll('.subcategory');
+            if (subcategories.length > 0) {
+              subcategories.forEach(subcategory => {
+                const subcatTitle = subcategory.querySelector('.subcategory-title')?.textContent || '';
+                pageContent += `\n--- ${subcatTitle} ---\n`;
+                
+                const apps = subcategory.querySelectorAll('.app-card');
+                apps.forEach(app => {
+                  const link = app.querySelector('.app-link');
+                  const tooltip = app.querySelector('.tooltiptext');
+                  if (link && tooltip) {
+                    pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
+                  }
+                });
+              });
+            } else {
+              // Regular apps (non-subcategorized)
+              const apps = section.querySelectorAll('.app-card');
+              apps.forEach(app => {
+                const link = app.querySelector('.app-link');
+                const tooltip = app.querySelector('.tooltiptext');
+                if (link && tooltip) {
+                  pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
+                }
+              });
+            }
+          });
+          
+          pageContent += '\n\nNOTE: Private Apps section is hidden and requires tapping the "Web Apps" title 8 times to unlock.\n';
+          
+          return pageContent;
+        };
+        
+        const pageContent = getPageContent();
+        console.log('Complete page content for AI:', pageContent); // Debug log
+        
+        // Now use AI-like logic to answer the question based on complete page content
+        const generateIntelligentResponse = (userQuery, fullPageContent) => {
+          const query = userQuery.toLowerCase().trim();
+          
+          // Parse the content to understand what apps are available
+          const lines = fullPageContent.split('\n');
+          const apps = [];
+          let currentSection = '';
+          let currentSubsection = '';
+          
+          lines.forEach(line => {
+            if (line.includes('===') && line.includes('===')) {
+              currentSection = line.replace(/=/g, '').trim();
+            } else if (line.includes('---') && line.includes('---')) {
+              currentSubsection = line.replace(/-/g, '').trim();
+            } else if (line.startsWith('•')) {
+              const appLine = line.substring(1).trim();
+              const [nameDesc, url] = appLine.split('\n  URL: ');
+              const [name, description] = nameDesc.split(': ');
+              if (name && description) {
+                apps.push({
+                  name: name.trim(),
+                  description: description.trim(),
+                  url: url?.trim() || '',
+                  section: currentSection,
+                  subsection: currentSubsection
+                });
+              }
+            }
+          });
+          
+          console.log('Parsed apps:', apps); // Debug log
+          
+          // Intelligent response generation based on query
+          
+          // Handle "is there any app" type questions
+          if (query.includes('is there') || query.includes('are there') || query.includes('any app') || query.includes('do you have')) {
+            
+            // Check for images
+            if (query.includes('image') || query.includes('photo') || query.includes('picture')) {
+              const imageApps = apps.filter(app => 
+                app.description.toLowerCase().includes('image') || 
+                app.description.toLowerCase().includes('png') || 
+                app.description.toLowerCase().includes('jpeg') ||
+                app.description.toLowerCase().includes('photo')
+              );
+              if (imageApps.length > 0) {
+                let response = `📸 **Yes! Here are apps that work with images:**\n\n`;
+                imageApps.forEach(app => {
+                  response += `• **${app.name}** - ${app.description}\n`;
+                });
+                return response;
+              }
+            }
+            
+            // Check for PDF
+            if (query.includes('pdf')) {
+              const pdfApps = apps.filter(app => app.description.toLowerCase().includes('pdf'));
+              if (pdfApps.length > 0) {
+                let response = `📄 **Yes! Here are apps that work with PDF files:**\n\n`;
+                pdfApps.forEach(app => {
+                  response += `• **${app.name}** - ${app.description}\n`;
+                });
+                return response;
+              }
+            }
+            
+            // Check for Excel/CSV
+            if (query.includes('excel') || query.includes('csv') || query.includes('spreadsheet')) {
+              const excelApps = apps.filter(app => 
+                app.description.toLowerCase().includes('excel') || 
+                app.description.toLowerCase().includes('csv')
+              );
+              if (excelApps.length > 0) {
+                let response = `📊 **Yes! Here are apps that work with Excel/CSV files:**\n\n`;
+                excelApps.forEach(app => {
+                  response += `• **${app.name}** - ${app.description}\n`;
+                });
+                return response;
+              }
+            }
+            
+            // Check for games - be more specific
+            if (query.includes('game') || query.includes('play') || query.includes('fun') || query.includes('all games') || query.includes('show me games')) {
+              const gameApps = apps.filter(app => app.subsection && app.subsection.toLowerCase().includes('games'));
+              if (gameApps.length > 0) {
+                let response = `🎮 **Yes! Here are available games:**\n\n`;
+                gameApps.forEach(app => {
+                  response += `• **${app.name}** - ${app.description}\n`;
+                });
+                response += `\n🔓 **To access these games, tap the "Web Apps" title 8 times to unlock the private section!**`;
+                return response;
+              }
+            }
+            
+            // Check for AI/chatbot
+            if (query.includes('ai') || query.includes('chatbot') || query.includes('assistant')) {
+              const aiApps = apps.filter(app => 
+                app.section.toLowerCase().includes('ai') || 
+                app.description.toLowerCase().includes('ai') ||
+                app.description.toLowerCase().includes('chatbot') ||
+                app.description.toLowerCase().includes('gpt')
+              );
+              if (aiApps.length > 0) {
+                let response = `🤖 **Yes! Here are AI assistants and chatbots:**\n\n`;
+                aiApps.forEach(app => {
+                  response += `• **${app.name}** - ${app.description}\n`;
+                });
+                return response;
+              }
+            }
+            
+            // Check for engineering/petroleum
+            if (query.includes('engineering') || query.includes('petroleum') || query.includes('refinery') || query.includes('oil') || query.includes('gas')) {
+              const engineeringApps = apps.filter(app => 
+                app.description.toLowerCase().includes('petroleum') ||
+                app.description.toLowerCase().includes('refinery') ||
+                app.description.toLowerCase().includes('engineering') ||
+                app.description.toLowerCase().includes('oil') ||
+                app.description.toLowerCase().includes('gas')
+              );
+              if (engineeringApps.length > 0) {
+                let response = `🛢️ **Yes! Here are engineering/petroleum apps:**\n\n`;
+                engineeringApps.forEach(app => {
+                  response += `• **${app.name}** - ${app.description}\n`;
+                });
+                return response;
+              }
+            }
+            
+            // General keyword search
+            const keywords = query.split(' ').filter(word => word.length > 2);
+            const matchingApps = apps.filter(app => {
+              return keywords.some(keyword => 
+                app.name.toLowerCase().includes(keyword) || 
+                app.description.toLowerCase().includes(keyword)
+              );
+            });
+            
+            if (matchingApps.length > 0) {
+              let response = `✅ **Yes! I found these relevant apps:**\n\n`;
+              matchingApps.slice(0, 5).forEach(app => { // Limit to top 5 results
+                response += `• **${app.name}** - ${app.description}\n`;
+              });
+              if (matchingApps.length > 5) {
+                response += `\n...and ${matchingApps.length - 5} more apps available!`;
+              }
+              return response;
+            }
+          }
+          
+          // Handle "show me all games" or "games" requests
+          if (query.includes('show me all games') || query.includes('show all games') || query.includes('all games') || query === 'games') {
+            const gameApps = apps.filter(app => app.subsection && app.subsection.toLowerCase().includes('games'));
+            if (gameApps.length > 0) {
+              let response = `🎮 **All Available Games (${gameApps.length}):**\n\n`;
+              gameApps.forEach(app => {
+                response += `• **${app.name}** - ${app.description}\n`;
+              });
+              response += `\n🔓 **To access these games, tap the "Web Apps" title 8 times to unlock the private section!**`;
+              return response;
+            }
+          }
+
+          // Handle private apps access questions
+          if (query.includes('private apps') || query.includes('private section') || query.includes('hidden apps') || query.includes('access private') || query.includes('unlock')) {
+            const privateApps = apps.filter(app => app.section.toLowerCase().includes('private'));
+            if (privateApps.length > 0) {
+              return `🔓 **Private Apps Access:**\n\nTo unlock the private section with ${privateApps.length} exclusive apps:\n\n**Tap the "Web Apps" title 8 times quickly!**\n\nThis will reveal:\n• 🎮 Games (7 games)\n• 📄 CVs (2 portfolios)\n• 🛠️ Tools (3 specialized tools)\n• 👥 Client Apps (2 custom apps)\n• 📊 Interactive Reports (16 detailed reports)\n\n*Just tap the main title "Web Apps" at the top 8 times in a row!*`;
+            }
+          }
+          
+          // Handle "list all" requests
+          if (query.includes('list all') || query.includes('show all') || query.includes('all apps')) {
+            const publicApps = apps.filter(app => app.section.toLowerCase().includes('web applications'));
+            const aiApps = apps.filter(app => app.section.toLowerCase().includes('ai assistants'));
+            const privateApps = apps.filter(app => app.section.toLowerCase().includes('private'));
+            
+            let response = `📋 **Complete List of All Available Applications:**\n\n`;
+            
+            response += `🌐 **PUBLIC WEB APPLICATIONS (${publicApps.length}):**\n`;
+            publicApps.forEach(app => {
+              response += `• **${app.name}** - ${app.description}\n`;
+            });
+            
+            response += `\n🤖 **AI ASSISTANTS (${aiApps.length}):**\n`;
+            aiApps.forEach(app => {
+              response += `• **${app.name}** - ${app.description}\n`;
+            });
+            
+            response += `\n🔒 **PRIVATE APPS (${privateApps.length})** - unlock by tapping title 8 times:\n`;
+            privateApps.slice(0, 5).forEach(app => {
+              response += `• **${app.name}** - ${app.description}\n`;
+            });
+            if (privateApps.length > 5) {
+              response += `...and ${privateApps.length - 5} more!\n`;
+            }
+            
+            response += `\n**Total: ${apps.length} applications available!**`;
+            return response;
+          }
+          
+          // Handle specific app name searches (prioritize exact matches)
+          const exactMatch = apps.find(app => 
+            app.name.toLowerCase() === query ||
+            app.name.toLowerCase().includes(query) ||
+            query.includes(app.name.toLowerCase().replace(/\s+/g, ''))
+          );
+          
+          if (exactMatch) {
+            return `🔍 **${exactMatch.name}:**\n\n${exactMatch.description}\n\n📍 **Section:** ${exactMatch.section}${exactMatch.subsection ? ` > ${exactMatch.subsection}` : ''}\n🔗 **URL:** ${exactMatch.url}`;
+          }
+          
+          // Fallback: General search across all content
+          const searchTerms = query.split(' ').filter(word => word.length > 2);
+          const relevantApps = apps.filter(app => {
+            return searchTerms.some(term => 
+              app.name.toLowerCase().includes(term) || 
+              app.description.toLowerCase().includes(term)
+            );
+          });
+          
+          if (relevantApps.length > 0) {
+            let response = `🔍 **Found ${relevantApps.length} matching apps:**\n\n`;
+            relevantApps.slice(0, 5).forEach(app => {
+              response += `• **${app.name}** - ${app.description}\n`;
+            });
+            if (relevantApps.length > 5) {
+              response += `\n...and ${relevantApps.length - 5} more matches!`;
+            }
+            return response;
+          }
+          
+          // Default helpful response
+          return `I have complete knowledge of all ${apps.length} applications on this page! Try asking:\n\n• "Is there any app that works with images?"\n• "Show me all games"\n• "List all apps"\n• "Where are the other apps?"\n• Or describe what you need help with!`;
+        };
+        
+        const response = generateIntelligentResponse(userMessage, pageContent);
+        console.log('Generated response:', response); // Debug log
+        
+        return response;
+      }
+
+      async callMinistralAPI(userMessage) {
+        // Check if API key is properly configured
+        if (!this.apiKey || this.apiKey === 'YOUR_MISTRAL_API_KEY_HERE') {
+          throw new Error('Ministral API key not configured. Please add your API key to enable AI-powered responses.');
+        }
+
+        // Get fresh HTML content for each request (stateless)
+        const htmlContent = this.getPageContent();
+        
+        const systemPrompt = `You are the "Web Apps Assistant" for amsamms.github.io. You can ONLY answer questions about the specific apps listed in the HTML content below. Do NOT use any general knowledge or mention any apps/companies not listed.
+
+STRICT RULES:
+1. ONLY answer about apps found in the HTML below
+2. If asked about an app not in the HTML, say "I don't see that app in this portfolio"
+3. NEVER mention: Microsoft, Google, Adobe, Netflix, Spotify, OpenAI, ChatGPT, or any mainstream apps
+4. Focus ONLY on the portfolio apps: data analysis tools, games, calculators, etc.
+5. If unsure, redirect to exploring the available apps
+
+WEB APPS PORTFOLIO CONTENT:
+${htmlContent}
+
+SPECIFIC ANSWERS:
+- "What is Refinery Expert?" → "Refinery Expert is an AI assistant for petroleum refining questions, based on GPT 3.5, available on POE platform."
+- Questions about private apps → "Private Apps are hidden. Tap the 'Web Apps' title 8 times to unlock them."
+
+Remember: You are an assistant for THIS specific portfolio only. Stay focused on these apps!`;
+        
+        // Build messages array (stateless - fresh system prompt + user message only)
+        const messages = [
+          {
+            role: "system",
+            content: systemPrompt
+          },
+          {
+            role: "user",
+            content: userMessage
+          }
+        ];
+
+        const requestBody = {
+          model: this.model,
+          messages: messages,
+          temperature: 0.1, // Very low temperature for more deterministic, instruction-following responses
+          max_tokens: 200,
+          stream: false
+        };
+
+        console.log('=== SENDING TO MISTRAL API (STATELESS) ===');
+        console.log(`Messages: ${messages.length} (System + User only)`);
+        console.log('System prompt (first 300 chars):', messages[0]?.content?.substring(0, 300) + '...');
+        console.log('User message:', userMessage);
+        console.log('HTML content length:', htmlContent.length);
+        console.log('Temperature:', requestBody.temperature);
+        console.log('Max tokens:', requestBody.max_tokens);
+        console.log('API URL:', this.apiUrl);
+        console.log('API Key (first 10 chars):', this.apiKey.substring(0, 10) + '...');
+        console.log('=== END REQUEST INFO ===');
+
+        try {
+          const response = await fetch(this.apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${this.apiKey}`
+            },
+            body: JSON.stringify(requestBody)
+          });
+
+          console.log('Fetch response status:', response.status);
+          console.log('Fetch response ok:', response.ok);
+
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Ministral API Error Response:', errorText);
+            throw new Error(`Ministral API request failed: ${response.status} - ${errorText}`);
+          }
+
+          const data = await response.json();
+          console.log('=== MISTRAL API RESPONSE ===');
+          console.log('Full response:', data);
+          console.log('Response content:', data.choices?.[0]?.message?.content);
+          console.log('=== END API RESPONSE ===');
+
+          if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
+            return data.choices[0].message.content.trim();
+          } else {
+            throw new Error('Unexpected response format from Ministral API');
+          }
+        } catch (fetchError) {
+          console.error('Fetch error details:', fetchError);
+          console.error('Error name:', fetchError.name);
+          console.error('Error message:', fetchError.message);
+          
+          // Re-throw with more context
+          throw new Error(`API call failed: ${fetchError.message}`);
+        }
+      }
+
+      getPageContent() {
+        const appsGrid = document.getElementById('appsGrid');
+        if (!appsGrid) return '';
+        
+        let pageContent = 'COMPLETE WEB APPS PORTFOLIO CONTENT:\n\n';
+        
+        // Get all sections
+        const sections = appsGrid.querySelectorAll('.app-section');
+        sections.forEach(section => {
+          const categoryTitle = section.querySelector('.category-title')?.textContent || '';
+          pageContent += `\n=== ${categoryTitle.toUpperCase()} ===\n`;
+          
+          // Get subcategories (for private apps)
+          const subcategories = section.querySelectorAll('.subcategory');
+          if (subcategories.length > 0) {
+            subcategories.forEach(subcategory => {
+              const subcatTitle = subcategory.querySelector('.subcategory-title')?.textContent || '';
+              pageContent += `\n--- ${subcatTitle} ---\n`;
+              
+              const apps = subcategory.querySelectorAll('.app-card');
+              apps.forEach(app => {
+                const link = app.querySelector('.app-link');
+                const tooltip = app.querySelector('.tooltiptext');
+                if (link && tooltip) {
+                  pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
+                }
+              });
+            });
+          } else {
+            // Regular apps (non-subcategorized)
+            const apps = section.querySelectorAll('.app-card');
+            apps.forEach(app => {
+              const link = app.querySelector('.app-link');
+              const tooltip = app.querySelector('.tooltiptext');
+              if (link && tooltip) {
+                pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
+              }
+            });
+          }
+        });
+        
+        pageContent += '\n\nNOTE: Private Apps section is hidden and requires tapping the "Web Apps" title 8 times to unlock.\n';
+        
+        return pageContent;
+      }
+
+      async callGeminiAPI(userMessage) {
+        // Updated request format for Gemini API
+        const requestBody = {
+          contents: [{
+            parts: [{
+              text: `You are a helpful assistant for amsamms.github.io web applications. Help users find the right apps for their needs.
+
+Available apps include:
+- Data analysis tools (Scatter Plotter, Dataset Analysis, PDF/Image extractors)
+- Engineering calculators (Unit Converter, Gas Calculator, Control Valves)
+- AI assistants for petroleum refining and other industries
+- Games (unlock by tapping title 8 times): Snake Battle, Reaction Clicker, etc.
+- Interactive reports and educational content
+
+User question: ${userMessage}
+
+Provide a helpful, concise response (max 200 words).`
+            }]
+          }],
+          generationConfig: {
+            temperature: 0.7,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 200,
+            stopSequences: []
+          },
+          safetySettings: [
+            {
+              category: "HARM_CATEGORY_HARASSMENT",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            },
+            {
+              category: "HARM_CATEGORY_HATE_SPEECH",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            },
+            {
+              category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            },
+            {
+              category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            }
+          ]
+        };
+
+        console.log('Sending request to Gemini API...');
+
+        const response = await fetch(this.apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('API Error Response:', errorText);
+          throw new Error(`API request failed: ${response.status} - ${errorText}`);
+        }
+
+        const data = await response.json();
+        console.log('API Response:', data);
+
+        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
+          return data.candidates[0].content.parts[0].text;
+        } else {
+          throw new Error('Unexpected response format from API');
+        }
+      }
+    }
+
+    // Initialize chatbot when page loads
+    const chatbot = new WebAppsChatbot();
   </script>
 </body>
 </html>
