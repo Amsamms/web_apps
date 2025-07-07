@@ -31,7 +31,7 @@ A modern, interactive collection of web applications and AI assistants for vario
 - **API PSV Design Expert**: Safety valve design and selection
 
 ### Private Apps Section
-- Hidden section accessible via hotkey combination (A+S+F)
+- Hidden section accessible via pressing WEB APPS title 8 times ( you can always ask chatbot )
 - Contains specialized tools and applications
 - Secure access for authorized users
 
