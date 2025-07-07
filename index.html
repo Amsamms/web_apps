@@ -8,6 +8,16 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Web Apps">
   <title>My Web Apps</title>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1WX1CLXW7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q1WX1CLXW7');
+  </script>
+  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
@@ -1276,22 +1286,16 @@ Remember: You are an assistant for THIS specific portfolio only. Stay focused on
         console.log(`Messages: ${messages.length} (System + User only)`);
         console.log('System prompt (first 300 chars):', messages[0]?.content?.substring(0, 300) + '...');
         console.log('User message:', userMessage);
-        console.log('HTML content length:', htmlContent.length);
-        console.log('Temperature:', requestBody.temperature);
-        console.log('Max tokens:', requestBody.max_tokens);
-        console.log('API URL:', this.apiUrl);
-        console.log('API Key (first 10 chars):', this.apiKey.substring(0, 10) + '...');
-        console.log('=== END REQUEST INFO ===');
-
+        
         try {
           const response = await fetch(this.apiUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${this.apiKey}`
-            },
-            body: JSON.stringify(requestBody)
-          });
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.apiKey}`
+          },
+          body: JSON.stringify(requestBody)
+        });
 
           console.log('Fetch response status:', response.status);
           console.log('Fetch response ok:', response.ok);
