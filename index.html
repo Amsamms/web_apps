@@ -468,10 +468,48 @@
 
     </div>
 
+    <!-- Welcome Bot Section -->
+    <div id="welcome-bot" class="welcome-bot">
+      <div class="welcome-bot-character">
+        <div class="bot-face">
+          <div class="bot-eyes">
+            <div class="bot-eye"></div>
+            <div class="bot-eye"></div>
+          </div>
+          <div class="bot-mouth"></div>
+        </div>
+        <div class="bot-body">
+          <div class="bot-antenna"></div>
+          <div class="bot-chest"></div>
+        </div>
+      </div>
+      <div class="welcome-bot-message">
+        <div class="message-bubble">
+          <div id="welcome-text" class="welcome-text">
+            👋 Hello! I'm your guide bot!
+          </div>
+          <div class="bubble-arrow"></div>
+        </div>
+      </div>
+      <div class="welcome-bot-actions">
+        <button id="bot-explore" class="bot-button primary">🚀 Explore Apps</button>
+        <button id="bot-chat" class="bot-button secondary">💬 Ask Questions</button>
+        <button id="bot-dismiss" class="bot-button dismiss">👋 See you later!</button>
+      </div>
+    </div>
+
     <!-- Chatbot Section -->
     <div id="chatbot-container" class="chatbot-container">
       <div id="chatbot-toggle" class="chatbot-toggle">
         <i class="fas fa-comments"></i>
+        <div class="chatbot-pulse-ring"></div>
+        <div class="chatbot-tooltip">
+          <div class="chatbot-tooltip-content">
+            <strong>🤖 Ask me about any app!</strong>
+            <br>
+            <small>I know everything about all the apps on this page</small>
+          </div>
+        </div>
       </div>
       <div id="chatbot-window" class="chatbot-window hidden">
         <div class="chatbot-header">
@@ -695,6 +733,38 @@
           this.style.transform = 'translateY(0)';
         });
       });
+
+      // Welcome bot actions
+      const welcomeBot = document.getElementById('welcome-bot');
+      const botExplore = document.getElementById('bot-explore');
+      const botChat = document.getElementById('bot-chat');
+      const botDismiss = document.getElementById('bot-dismiss');
+
+      // Show welcome bot on page load
+      setTimeout(() => {
+        welcomeBot.classList.add('visible');
+      }, 500);
+
+      // Explore apps button
+      botExplore.addEventListener('click', () => {
+        welcomeBot.classList.remove('visible');
+        // Smooth scroll to apps grid
+        document.getElementById('appsGrid').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // Chat with bot button
+      botChat.addEventListener('click', () => {
+        welcomeBot.classList.remove('visible');
+        // Open chatbot window
+        const chatbot = document.getElementById('chatbot-window');
+        chatbot.classList.remove('hidden');
+        chatbot.querySelector('#chatbot-input').focus();
+      });
+
+      // Dismiss bot button
+      botDismiss.addEventListener('click', () => {
+        welcomeBot.classList.remove('visible');
+      });
     });
 
     // Donation handling function
@@ -813,8 +883,12 @@
         this.requestCount = 0;
         this.maxRequests = 10000; // Much higher since it's so cheap
         
+        // Attention animation state
+        this.hasInteracted = localStorage.getItem('chatbot-interacted') === 'true';
+        
         this.initializeElements();
         this.attachEventListeners();
+        this.setupAttentionAnimations();
       }
 
       initializeElements() {
@@ -825,23 +899,93 @@
         this.messages = document.getElementById('chatbot-messages');
         this.input = document.getElementById('chatbot-input');
         this.sendBtn = document.getElementById('chatbot-send');
+        
+        // Debug: Check if elements are found
+        console.log('Chatbot elements initialized:', {
+          toggle: !!this.toggle,
+          window: !!this.window,
+          closeBtn: !!this.closeBtn,
+          clearBtn: !!this.clearBtn,
+          messages: !!this.messages,
+          input: !!this.input,
+          sendBtn: !!this.sendBtn
+        });
       }
 
       attachEventListeners() {
-        this.toggle.addEventListener('click', () => this.toggleWindow());
+        this.toggle.addEventListener('click', () => {
+          this.toggleWindow();
+          this.hideAttentionAnimations();
+        });
         this.closeBtn.addEventListener('click', () => this.closeWindow());
         this.clearBtn.addEventListener('click', () => this.clearConversation());
-        this.sendBtn.addEventListener('click', () => this.sendMessage());
+        this.sendBtn.addEventListener('click', () => {
+          this.sendMessage();
+          this.hideAttentionAnimations();
+        });
         this.input.addEventListener('keypress', (e) => {
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             this.sendMessage();
+            this.hideAttentionAnimations();
           }
         });
       }
 
+      setupAttentionAnimations() {
+        this.pulseRing = document.querySelector('.chatbot-pulse-ring');
+        this.tooltip = document.querySelector('.chatbot-tooltip');
+        
+        console.log('Attention elements found:', {
+          pulseRing: !!this.pulseRing,
+          tooltip: !!this.tooltip,
+          hasInteracted: this.hasInteracted
+        });
+        
+        if (!this.hasInteracted) {
+          console.log('New visitor detected - showing attention animations in 2 seconds...');
+          // Show attention animations for new visitors
+          setTimeout(() => {
+            console.log('Showing attention animations now!');
+            if (this.pulseRing) {
+              this.pulseRing.style.setProperty('display', 'block', 'important');
+              console.log('Pulse ring shown');
+            }
+            if (this.tooltip) {
+              this.tooltip.style.setProperty('display', 'block', 'important');
+              console.log('Tooltip shown');
+            }
+          }, 2000); // Show after 2 seconds
+          
+          // Auto-hide after 15 seconds to not be annoying
+          setTimeout(() => {
+            console.log('Auto-hiding attention animations after 15 seconds');
+            this.hideAttentionAnimations();
+          }, 17000);
+        } else {
+          console.log('Returning visitor - hiding attention animations');
+          // Hide for returning users
+          this.hideAttentionAnimations();
+        }
+      }
+
+      hideAttentionAnimations() {
+        if (this.pulseRing) {
+          this.pulseRing.style.setProperty('display', 'none', 'important');
+        }
+        if (this.tooltip) {
+          this.tooltip.style.setProperty('display', 'none', 'important');
+        }
+        
+        // Remember that user has interacted
+        this.hasInteracted = true;
+        localStorage.setItem('chatbot-interacted', 'true');
+      }
+
       toggleWindow() {
+        console.log('Toggle window clicked, current state:', this.window.classList.contains('hidden'));
         this.window.classList.toggle('hidden');
+        console.log('New state after toggle:', this.window.classList.contains('hidden'));
         if (!this.window.classList.contains('hidden')) {
           this.input.focus();
         }
@@ -864,6 +1008,15 @@
         this.addMessage('Chat cleared! 🧹 Each message is now processed independently with fresh context.', 'bot');
         
         console.log('Chat cleared. Each message is processed independently (stateless).');
+        
+        // Easter egg: if user clears 3 times rapidly, reset attention animations
+        if (!this.clearCount) this.clearCount = 0;
+        this.clearCount++;
+        if (this.clearCount >= 3) {
+          localStorage.removeItem('chatbot-interacted');
+          this.addMessage('🎉 Attention animations reset! Refresh the page to see them again.', 'bot');
+          this.clearCount = 0;
+        }
       }
 
       async sendMessage() {
@@ -1423,80 +1576,25 @@ Remember: You are an assistant for THIS specific portfolio only. Stay focused on
       }
 
       async callGeminiAPI(userMessage) {
-        // Updated request format for Gemini API
-        const requestBody = {
-          contents: [{
-            parts: [{
-              text: `You are a helpful assistant for amsamms.github.io web applications. Help users find the right apps for their needs.
-
-Available apps include:
-- Data analysis tools (Scatter Plotter, Dataset Analysis, PDF/Image extractors)
-- Engineering calculators (Unit Converter, Gas Calculator, Control Valves)
-- AI assistants for petroleum refining and other industries
-- Games (unlock by tapping title 8 times): Snake Battle, Reaction Clicker, etc.
-- Interactive reports and educational content
-
-User question: ${userMessage}
-
-Provide a helpful, concise response (max 200 words).`
-            }]
-          }],
-          generationConfig: {
-            temperature: 0.7,
-            topK: 40,
-            topP: 0.95,
-            maxOutputTokens: 200,
-            stopSequences: []
-          },
-          safetySettings: [
-            {
-              category: "HARM_CATEGORY_HARASSMENT",
-              threshold: "BLOCK_MEDIUM_AND_ABOVE"
-            },
-            {
-              category: "HARM_CATEGORY_HATE_SPEECH",
-              threshold: "BLOCK_MEDIUM_AND_ABOVE"
-            },
-            {
-              category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-              threshold: "BLOCK_MEDIUM_AND_ABOVE"
-            },
-            {
-              category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-              threshold: "BLOCK_MEDIUM_AND_ABOVE"
-            }
-          ]
-        };
-
-        console.log('Sending request to Gemini API...');
-
-        const response = await fetch(this.apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestBody)
-        });
-
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error('API Error Response:', errorText);
-          throw new Error(`API request failed: ${response.status} - ${errorText}`);
-        }
-
-        const data = await response.json();
-        console.log('API Response:', data);
-
-        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
-          return data.candidates[0].content.parts[0].text;
-        } else {
-          throw new Error('Unexpected response format from API');
-        }
+        // This method is not currently used but kept for future reference
+        throw new Error('Gemini API not implemented. Using Ministral API instead.');
       }
     }
 
     // Initialize chatbot when page loads
     const chatbot = new WebAppsChatbot();
+    console.log('Chatbot initialized successfully:', chatbot);
+    
+    // Debug: Add a test function to manually trigger animations (accessible via console)
+    window.testAttentionAnimations = function() {
+      console.log('Manual test: showing attention animations');
+      localStorage.removeItem('chatbot-interacted');
+      const pulseRing = document.querySelector('.chatbot-pulse-ring');
+      const tooltip = document.querySelector('.chatbot-tooltip');
+      if (pulseRing) pulseRing.style.setProperty('display', 'block', 'important');
+      if (tooltip) tooltip.style.setProperty('display', 'block', 'important');
+      console.log('Animations should now be visible!');
+    };
   </script>
 </body>
 </html>
