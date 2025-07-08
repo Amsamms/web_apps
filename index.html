@@ -15,7 +15,25 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-Q1WX1CLXW7');
+    
+    // Enhanced configuration with debugging
+    gtag('config', 'G-Q1WX1CLXW7', {
+      page_title: 'Web Apps Portfolio',
+      page_location: window.location.href,
+      debug_mode: true,
+      send_page_view: true
+    });
+    
+    // Debug logging
+    console.log('Google Analytics 4 initialized with ID: G-Q1WX1CLXW7');
+    console.log('Current page:', window.location.href);
+    
+    // Track page view manually for debugging
+    gtag('event', 'page_view', {
+      page_title: 'Web Apps Portfolio',
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
   </script>
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -510,6 +528,15 @@
       const loading = document.querySelector('.loading');
       const hiddenApps = document.getElementById('hidden-apps');
 
+      // Track page load
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_load_complete', {
+          event_category: 'engagement',
+          event_label: 'page_ready'
+        });
+        console.log('Page load tracked in GA4');
+      }
+
       // Multi-tap functionality
       let tapCount = 0;
       let tapTimer = null;
@@ -589,6 +616,16 @@
           
           // Show success message
           showToast('Private apps unlocked! 🔓');
+          
+          // Track private apps unlock event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'private_apps_unlocked', {
+              event_category: 'engagement',
+              event_label: 'secret_section_accessed',
+              value: 1
+            });
+            console.log('Private apps unlock tracked in GA4');
+          }
           
           // Optional: scroll to private apps section
           setTimeout(() => {
