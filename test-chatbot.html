@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Chatbot Test</h1>
+  
+  <!-- Minimal content for testing -->
+  <div id="appsGrid">
+    <section class="app-section">
+      <h2 class="category-title">Test Apps</h2>
+      <div class="app-cards">
+        <div class="app-card">
+          <div class="tooltip">
+            <a href="#" class="app-link">Test App</a>
+            <span class="tooltiptext">This is a test application</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Chatbot Section -->
+  <div id="chatbot-container" class="chatbot-container">
+    <div id="chatbot-toggle" class="chatbot-toggle">
+      <i class="fas fa-comments"></i>
+    </div>
+    <div id="chatbot-window" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h4>🤖 Test Assistant</h4>
+        <div class="chatbot-header-buttons">
+          <button id="chatbot-clear">🗑️</button>
+          <button id="chatbot-close">×</button>
+        </div>
+      </div>
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot">
+          <div class="message-content">Hi! I'm working!</div>
+        </div>
+      </div>
+      <div class="chatbot-input-container">
+        <input type="text" id="chatbot-input" placeholder="Test message...">
+        <button id="chatbot-send">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded');
+      
+      const toggle = document.getElementById('chatbot-toggle');
+      const window = document.getElementById('chatbot-window');
+      const closeBtn = document.getElementById('chatbot-close');
+      
+      console.log('Toggle element:', toggle);
+      console.log('Window element:', window);
+      
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          console.log('Toggle clicked!');
+          window.classList.toggle('hidden');
+        });
+      }
+      
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          console.log('Close clicked!');
+          window.classList.add('hidden');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
