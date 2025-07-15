@@ -6,8 +6,9 @@
   <meta name="theme-color" content="#4f46e5">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Web Apps">
-  <title>My Web Apps</title>
+  <meta name="apple-mobile-web-app-title" content="Complete Web Apps Portfolio">
+  <title>Complete Web Apps Portfolio - 61 Professional Tools</title>
+  <meta name="description" content="Discover 61 professional web applications including data analysis, AI assistants, games, engineering tools, and interactive reports. All free to use!">
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1WX1CLXW7"></script>
@@ -15,1617 +16,2354 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    
-    // Enhanced configuration with debugging
     gtag('config', 'G-Q1WX1CLXW7', {
-      page_title: 'Web Apps Portfolio',
+      page_title: 'Complete Web Apps Portfolio',
       page_location: window.location.href,
       debug_mode: true,
       send_page_view: true
     });
-    
-    // Debug logging
-    console.log('Google Analytics 4 initialized with ID: G-Q1WX1CLXW7');
-    console.log('Current page:', window.location.href);
-    
-    // Track page view manually for debugging
-    gtag('event', 'page_view', {
-      page_title: 'Web Apps Portfolio',
-      page_location: window.location.href,
-      page_path: window.location.pathname
-    });
   </script>
   
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles_enhanced.css">
+  <link rel="stylesheet" href="additional_styles.css">
 </head>
 
 <body>
+  <!-- Background Effects -->
   <div id="threejs-container"></div>
+  <div class="background-gradient"></div>
+  
+  <!-- Navigation Header -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <h1 class="nav-title" id="navTitle">Complete Web Apps Portfolio</h1>
+        <span class="nav-subtitle">61 Professional Tools</span>
+      </div>
+      <div class="nav-controls">
+        <div class="search-container-nav">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input-nav" placeholder="Search apps..." id="searchInputNav">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <button class="nav-btn" id="privateAppsBtn">
+          <i class="fas fa-unlock-alt"></i>
+          <span>Private Apps</span>
+        </button>
+        <button class="nav-btn" id="chatbotNavBtn">
+          <i class="fas fa-robot"></i>
+          <span>AI Assistant</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
-    <h1>Web Apps</h1>
-    
-    <div class="search-container">
-      <input type="text" class="search-input" placeholder="Search apps..." id="searchInput">
-    </div>
-
-    <div class="loading">
-      <div class="loading-spinner"></div>
-    </div>
-
-    <div class="apps-grid" id="appsGrid">
-      <!-- Web Apps Section -->
-      <section class="app-section">
-        <h2 class="category-title">Web Applications</h2>
-        <div class="app-cards">
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" target="_blank" class="app-link">Scatter Plotter</a>
-              <span class="tooltiptext">great interactive plotting tool for excel and csv files</span>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-rocket"></i>
+          <span>61 Apps Available</span>
+        </div>
+        <h1 class="hero-title">
+          Complete Professional Web Applications
+          <span class="hero-highlight">All 61 Tools in One Place</span>
+        </h1>
+        <p class="hero-description">
+          Discover the complete collection of 61 professional tools for data analysis, AI assistance, engineering calculations, 
+          games, interactive reports, and more. Built with cutting-edge technology and designed for professionals.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">13</div>
+            <div class="stat-label">Data Tools</div>
           </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms-general-machine-learning-algorithm-main-rs6nt9.streamlit.app/" target="_blank" class="app-link">Simple Machine Learner</a>
-              <span class="tooltiptext">simple start for machine learning realm no previous experience is required</span>
-            </div>
+          <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-label">AI Assistants</div>
           </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://datasetanalysis-0.streamlit.app/" target="_blank" class="app-link">Dataset Analysis</a>
-              <span class="tooltiptext">upload excel or csv file and a dynamic report will be generated</span>
-            </div>
+          <div class="stat-item">
+            <div class="stat-number">10</div>
+            <div class="stat-label">Games</div>
           </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://pdf-table-extract.streamlit.app/" target="_blank" class="app-link">PDF tables extractor</a>
-              <span class="tooltiptext">upload pdf file and extract all tables from that document to downloadable csv or excel file</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://images-table-extractor.streamlit.app/" target="_blank" class="app-link">Image tables extractor</a>
-              <span class="tooltiptext">upload PNG, JPEG, JPG file and extract all tables from that photo to downloadable csv file</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://unit-converter-engineering.streamlit.app/" target="_blank" class="app-link">Unit Converter</a>
-              <span class="tooltiptext">universal converter up to 3 combined units, easy to use with examples</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://gas-density-calculator-r.streamlit.app/" target="_blank" class="app-link">Gas Calculator</a>
-              <span class="tooltiptext">input is gas composition and the output is density, molecular weight, CP, CV, mass fraction and much more</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://envelopplotter.streamlit.app/" target="_blank" class="app-link">Equilibrium Envelope</a>
-              <span class="tooltiptext">input gas composition, pressure, temperature and desired equation of state and get the plot of equilibrium envelope</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://liquid-control-valves-eval.streamlit.app/" target="_blank" class="app-link">Liquid control valve evaluation</a>
-              <span class="tooltiptext">Estimate flowrate in existing control valves and check chocke flow conditions according to actual operating conditions</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://gas-control-valves-evaluation.streamlit.app//" target="_blank" class="app-link">Gas control valve evaluation</a>
-              <span class="tooltiptext">Estimate flowrate in existing control valves and check chocke flow conditions according to actual operating conditions</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://sabri-gpt-chatbot.streamlit.app/" target="_blank" class="app-link">chatbot using gpt-4o (Subscribers Only)</a>
-              <span class="tooltiptext">Chatbot i created using streamlit app to make use of gpt-04 and 3.5 abilities (you must have an openai API)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://assistant-api-sabri.streamlit.app//" target="_blank" class="app-link">chatbot using assistant API (Subscribers Only)</a>
-              <span class="tooltiptext">Chatbot i created using streamlit app to make use of assistant API that openai made (you must have an openai API)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://rag-demonstration.streamlit.app/" target="_blank" class="app-link">RAG Demonstration</a>
-              <span class="tooltiptext">AI-powered document retrieval system using RAG (Retrieval Augmented Generation) technique. Upload Word, Excel, PDF, PowerPoint files and ask questions - the AI will retrieve and cite specific information with document name and page references. OpenAI API key is mandatory!</span>
-            </div>
+          <div class="stat-item">
+            <div class="stat-number">26</div>
+            <div class="stat-label">More Tools</div>
           </div>
         </div>
-      </section>
-
-      <section class="app-section">
-        <h2 class="category-title">AI Assistants</h2>
-        <div class="app-cards">
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://poe.com/Refinery_expert" target="_blank" class="app-link">Refinery Expert</a>
-              <span class="tooltiptext">ask anything about petroleum refining, Artificial intellegence will answer with reference books or papers, based on GPT 3.5. You have to be a POE free subsciber</span>
-            </div>
+        <div class="hero-actions">
+          <button class="cta-primary" onclick="scrollToSection('apps')">
+            <i class="fas fa-compass"></i>
+            <span>Explore All Apps</span>
+          </button>
+          <button class="cta-secondary" onclick="scrollToSection('quick-start')">
+            <i class="fas fa-play"></i>
+            <span>Get Started</span>
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-cards">
+          <div class="floating-card" style="--delay: 0s">
+            <i class="fas fa-chart-line"></i>
+            <span>Analytics</span>
           </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://poe.com/Refinery_expert_II" target="_blank" class="app-link">Refinery Advanced Expert (Subscribers Only)</a>
-              <span class="tooltiptext">Same as Refinery Expert but based on GPT 4, so you have to be a POE premium subscriber, this should be always the first choice as it is more advanced than refinery expert bot</span>
-            </div>
+          <div class="floating-card" style="--delay: 0.5s">
+            <i class="fas fa-robot"></i>
+            <span>AI Tools</span>
           </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-qJMwAmzZE-oil-refinery-expert" target="_blank" class="app-link">Oil Refinery Expert GPT (Subscribers Only)</a>
-              <span class="tooltiptext">Answers all questions about oil refining and processing. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
+          <div class="floating-card" style="--delay: 1s">
+            <i class="fas fa-gamepad"></i>
+            <span>Games</span>
           </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-sReBS7WaY-gpsa-expert" target="_blank" class="app-link">GPSA Expert GPT (Subscribers Only)</a>
-              <span class="tooltiptext">Answers all questions from GPSA. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chatgpt.com/g/g-8EApuDlTv-rule-of-thumb-for-chemical-engineers" target="_blank" class="app-link">Rule of thumb for chemical engineers (Subscribers Only)</a>
-              <span class="tooltiptext">Answers all questions from Rule of thumb for chemical engineers. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-kSjcS3y6E-api-psv-design-and-selection" target="_blank" class="app-link">API PSV design and selection GPT (Subscribers Only)</a>
-              <span class="tooltiptext">Utilize API 520 part I, II, 521 and 526 to design and select safety valves. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-GQ2ziq3Ak-fired-heater-expert" target="_blank" class="app-link">FIRED HEATER Expert GPT (Subscribers Only)</a>
-              <span class="tooltiptext">Expert in fired heater design and calculations for oil & gas, Utilize API 530, 535, 560, 556 and 573. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-3iNruHIyF-hysys-screenshot-explainer" target="_blank" class="app-link">HYSYS tutor/screenshot explainer GPTs (Subscribers Only)</a>
-              <span class="tooltiptext">Answers all questions about HYSYS, additionally you can take screenshot from hsys and ask for explainations. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-V3713dVbQ-new-concept-simplifier" target="_blank" class="app-link">New concept simplifier GPTs (Subscribers Only)</a>
-              <span class="tooltiptext">Simplifies new concepts using relatable analogies, then details them further on request (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-PfH1RpIrK-pdf-to-excel-equations-transformer" target="_blank" class="app-link">PDF to EXCEL equations transformer GPTs (Subscribers Only)</a>
-              <span class="tooltiptext">Transforms PDF equations into Excel formulas with color-coded inputs and outputs, excel file can then be downloaded. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-t7Ncd9vyV-bad-mood-mail-creator" target="_blank" class="app-link">Bad mood mail creator GPTs (Subscribers Only)</a>
-              <span class="tooltiptext">Crafts professional, assertive emails from user's inputs. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
-          </div>
-
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://chat.openai.com/g/g-jzaXyG8Gn-regex-creator-analyzer" target="_blank" class="app-link">REGEX Creator/Analyzer GPTs (Subscribers Only)</a>
-              <span class="tooltiptext">Creates and explains Python-compatible regex formulas. (CHATGPT PLUS SUBSCRIBERS)</span>
-            </div>
+          <div class="floating-card" style="--delay: 1.5s">
+            <i class="fas fa-calculator"></i>
+            <span>Calculators</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Hidden apps section that will be revealed with hotkeys -->
-      <section id="hidden-apps" class="app-section hidden-apps">
-        <h2 class="category-title">Private Apps</h2>
+    <!-- Quick Start Section -->
+    <section class="quick-start-section" id="quick-start">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-star section-icon"></i>
+          New Here? Start With These
+        </h2>
+        <p class="section-subtitle">Popular apps perfect for getting started</p>
+      </div>
+      <div class="quick-start-grid">
+        <div class="quick-start-card" onclick="filterApps('data-analysis')">
+          <div class="card-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="card-content">
+            <h3>Dataset Analysis</h3>
+            <p>Upload Excel/CSV files for instant insights and reports</p>
+            <div class="card-tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </div>
+          <div class="card-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
         
-        <!-- CVs Subcategory -->
-        <div class="subcategory">
-          <h3 class="subcategory-title">📄 CVs</h3>
-          <div class="app-cards">
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/ahmed_mohamed_sabri/" target="_blank" class="app-link">Ahmed Mohamed Sabri</a>
-                <span class="tooltiptext">Personal portfolio website showcasing professional experience, achievements, and engineering web applications. Senior Process Engineer with expertise in refinery operations and AI applications.</span>
-              </div>
+        <div class="quick-start-card" onclick="filterApps('engineering')">
+          <div class="card-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <div class="card-content">
+            <h3>Unit Converter</h3>
+            <p>Universal converter for engineering calculations</p>
+            <div class="card-tags">
+              <span class="tag">Engineering</span>
+              <span class="tag">Utility</span>
             </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Amr-CV/" target="_blank" class="app-link">Amr CV</a>
-                <span class="tooltiptext">Professional CV website showcasing Amr's qualifications, experience, and achievements</span>
-              </div>
-            </div>
+          </div>
+          <div class="card-arrow">
+            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
-
-        <!-- Games Subcategory -->
-        <div class="subcategory">
-          <h3 class="subcategory-title">🎮 Games</h3>
-          <div class="app-cards">
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/snake-battle/" target="_blank" class="app-link">Snake Battle</a>
-                <span class="tooltiptext">A thrilling multiplayer snake game where you compete against AI opponents. Control your snake using arrow keys or WASD, collect food to grow longer, and try to outmaneuver your opponents.</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://Amsamms.github.io/reaction-clicker/" target="_blank" class="app-link">Reaction Clicker</a>
-                <span class="tooltiptext">Test your reflexes in this fast-paced clicking game! Click as fast as you can to increase your score and combo multiplier. The game gets progressively faster, challenging your reaction time and coordination.</span>
-              </div>
-            </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/Rubber-Chicken-Launcher/" target="_blank" class="app-link">Rubber Chicken Launcher</a>
-              <span class="tooltiptext">A fun physics-based game where you launch a rubber chicken as far as possible. Adjust angle and power, then watch it fly!</span>
+        
+        <div class="quick-start-card" onclick="filterApps('ai-tools')">
+          <div class="card-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="card-content">
+            <h3>AI Assistants</h3>
+            <p>Chat with specialized AI experts for your field</p>
+            <div class="card-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Chat</span>
             </div>
           </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/painter/" target="_blank" class="app-link">Painter</a>
-              <span class="tooltiptext">A  digital painting canvas where you can draw, paint, and create artwork with various tools and colors and download them</span>
-            </div>
-          </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/Neon-Dash/" target="_blank" class="app-link">Neon Dash</a>
-              <span class="tooltiptext">A fast-paced neon-themed endless runner game where you dash through obstacles in a vibrant cyberpunk world</span>
-            </div>
-          </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/Circle-pong/" target="_blank" class="app-link">Circle Pong</a>
-              <span class="tooltiptext">A circular twist on the classic pong game. Keep the ball bouncing inside the circle as long as you can!</span>
-            </div>
-          </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/time-words/" target="_blank" class="app-link">Time Words</a>
-              <span class="tooltiptext">A fun word puzzle game where you control time by writing the correct spelling of words</span>
-            </div>
-          </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/chess_game/" target="_blank" class="app-link">Sabri Chess Game</a>
-              <span class="tooltiptext">A classical chess game with full chess rules and 2 players. There is also Sabri mode, discover it yourself!.</span>
-            </div>
-          </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/Neon-runner/" target="_blank" class="app-link">Neon Runner</a>
-              <span class="tooltiptext">A fast-paced runner game with neon graphics where you dodge obstacles and collect gems while running from red foes </span>
-            </div>
-          </div>
-          <div class="app-card">
-            <div class="tooltip">
-              <a href="https://amsamms.github.io/Wheck-a-bug/" target="_blank" class="app-link">Wheck-a-bug</a>
-              <span class="tooltiptext">A fun bug-whacking game where you test your reflexes by whacking bugs as they appear. Fast-paced action with scoring and timing challenges!</span>
-            </div>
-          </div>
+          <div class="card-arrow">
+            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
-
-        <!-- Tools Subcategory -->
-        <div class="subcategory">
-          <h3 class="subcategory-title">🛠️ Tools</h3>
-          <div class="app-cards">
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://simple-regression-tool.streamlit.app/" target="_blank" class="app-link">Simple Regression Tool</a>
-                <span class="tooltiptext">A tool for performing simple regression analysis on data</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://movie-retriever.streamlit.app/" target="_blank" class="app-link">Movie retriever</a>
-                <span class="tooltiptext">retrieve data about any movie using Movies data base API</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://h2-prediction.streamlit.app/" target="_blank" class="app-link">H2 predictor for recycle gas in platformer unit</a>
-                <span class="tooltiptext">Depi project for prediction hydrogen content from macro only</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/calculator/" target="_blank" class="app-link">Advanced Calculator</a>
-                <span class="tooltiptext">A comprehensive calculator with basic arithmetic, scientific functions, and advanced mathematical operations for engineering and scientific calculations</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/unit_converters_html/" target="_blank" class="app-link">unit_converter</a>
-                <span class="tooltiptext">This is a unit converted tool, fast, accurate and mobile friendly with modern design, if you want to add units, massage me!</span>
-              </div>
+        
+        <div class="quick-start-card" onclick="showPrivateApps()">
+          <div class="card-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <div class="card-content">
+            <h3>Games & More</h3>
+            <p>Interactive games and specialized tools</p>
+            <div class="card-tags">
+              <span class="tag">Games</span>
+              <span class="tag">Interactive</span>
             </div>
           </div>
-        </div>
-
-        <!-- Client Apps Subcategory -->
-        <div class="subcategory">
-          <h3 class="subcategory-title">👥 Client Apps</h3>
-          <div class="app-cards">
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://ai-league.streamlit.app/" target="_blank" class="app-link">AI League Analyzer</a>
-                <span class="tooltiptext">a web app that let user upload video for fotball players and analysis they play using Gemini</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://shatar-html.vercel.app/" target="_blank" class="app-link">Shatar HTML Generator</a>
-                <span class="tooltiptext">Arabic poem generator web application for creating beautiful Arabic poetry and verses using HTML interface</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive Web Apps/Reports Subcategory -->
-        <div class="subcategory">
-          <h3 class="subcategory-title">📊 Interactive Web Apps & Reports</h3>
-          <div class="app-cards">
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Managerial-economics/" target="_blank" class="app-link">Managerial Economics</a>
-                <span class="tooltiptext">interactive description for some basic economic concepts</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/centralization_vs_decentralization/" target="_blank" class="app-link">مركزيه ولا لامركزيه؟ (Centralization vs Decentralization)</a>
-                <span class="tooltiptext">تطبيق تفاعلي يشرح الفرق بين المركزية واللامركزية في المؤسسات والدول باللغة العربية</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/petroleum-refining-and-petrochemicals-evolution/" target="_blank" class="app-link">Petroleum Refining & Petrochemicals Evolution</a>
-                <span class="tooltiptext">A visual and interactive timeline of the evolution of petroleum refining and petrochemicals industries</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/pitch-to-asphalt/" target="_blank" class="app-link">Pitch to Asphalt</a>
-                <span class="tooltiptext">Interactive web application for pitch to asphalt conversion report visualization</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/decarbonization/" target="_blank" class="app-link">Decarbonization</a>
-                <span class="tooltiptext">Interactive web application about decarbonization strategies and technologies</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/process-safety-AI/" target="_blank" class="app-link">Process Safety AI</a>
-                <span class="tooltiptext">Report about advancing process safety using AI and Egypt's role in advancing process safety throughout oil and gas sector</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/CCPS-Risk-Based-Process-Safety-Framework-Pillars-Elements-and-Real-World-Applications/" target="_blank" class="app-link">CCPS Risk-Based Process Safety Framework</a>
-                <span class="tooltiptext">Comprehensive guide to CCPS Risk-Based Process Safety Framework covering pillars, elements, and real-world applications</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Platforming_technologies/" target="_blank" class="app-link">Platforming Technologies</a>
-                <span class="tooltiptext">Interactive web application explaining platforming technologies in petroleum refining with comprehensive resources and visual guides</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Process_safety_case_studies_for_refineries/" target="_blank" class="app-link">Process Safety Case Studies for Refineries</a>
-                <span class="tooltiptext">Interactive case studies of 8 major accidents in petroleum refineries with detailed process safety analysis and lessons learned</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Ai_coding_assistants_2025/" target="_blank" class="app-link">AI Coding Assistants 2025</a>
-                <span class="tooltiptext">Comprehensive comparison of AI coding assistants including Copilot, Cursor, and WindSurf for 2025 development workflows</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Energy_consumpion_reduction_in_petroleum_refineries/" target="_blank" class="app-link">Energy Consumption Reduction in Petroleum Refineries</a>
-                <span class="tooltiptext">Interactive web application focused on strategies and technologies for reducing energy consumption in petroleum refineries</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Refinery-Energy-Reduction-Case-Studies/" target="_blank" class="app-link">Refinery Energy Reduction Case Studies</a>
-                <span class="tooltiptext">Comprehensive case studies showcasing real-world energy reduction projects and their implementation in petroleum refineries</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/AI-for-Refinery-Energy-Savings/" target="_blank" class="app-link">AI for Refinery Energy Savings</a>
-                <span class="tooltiptext">Interactive application exploring AI-powered solutions and technologies for optimizing energy efficiency in petroleum refineries</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Refinery-heaters-optimization/" target="_blank" class="app-link">Refinery Heaters Optimization</a>
-                <span class="tooltiptext">Interactive application focused on optimization techniques and strategies for petroleum refinery fired heaters </span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Distillation-Tower-Operation-Optimization/" target="_blank" class="app-link">Distillation Tower Operation Optimization</a>
-                <span class="tooltiptext">Interactive web application for optimizing distillation tower operation and performance in process industries</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/Refinery-compressors-optimization/" target="_blank" class="app-link">Refinery Compressors Optimization</a>
-                <span class="tooltiptext">Interactive web application focused on energy optimization techniques and strategies for petroleum refinery compressors</span>
-              </div>
-            </div>
-            <div class="app-card">
-              <div class="tooltip">
-                <a href="https://amsamms.github.io/DWC_energy_saving/" target="_blank" class="app-link">DWC Energy Saving</a>
-                <span class="tooltiptext">A report explaining the theory and benefits of divided wall columns over conventional distillation columns in both capital cost and energy saving</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- Welcome Bot Section -->
-    <div id="welcome-bot" class="welcome-bot">
-      <div class="welcome-bot-character">
-        <div class="bot-face">
-          <div class="bot-eyes">
-            <div class="bot-eye"></div>
-            <div class="bot-eye"></div>
-          </div>
-          <div class="bot-mouth"></div>
-        </div>
-        <div class="bot-body">
-          <div class="bot-antenna"></div>
-          <div class="bot-chest"></div>
-        </div>
-      </div>
-      <div class="welcome-bot-message">
-        <div class="message-bubble">
-          <div id="welcome-text" class="welcome-text">
-            👋 Hello! I'm your guide bot!
-          </div>
-          <div class="bubble-arrow"></div>
-        </div>
-      </div>
-      <div class="welcome-bot-actions">
-        <button id="bot-explore" class="bot-button primary">🚀 Explore Apps</button>
-        <button id="bot-chat" class="bot-button secondary">💬 Ask Questions</button>
-        <button id="bot-dismiss" class="bot-button dismiss">👋 See you later!</button>
-      </div>
-    </div>
-
-    <!-- Chatbot Section -->
-    <div id="chatbot-container" class="chatbot-container">
-      <div id="chatbot-toggle" class="chatbot-toggle">
-        <i class="fas fa-comments"></i>
-        <div class="chatbot-pulse-ring"></div>
-        <div class="chatbot-tooltip">
-          <div class="chatbot-tooltip-content">
-            <strong>🤖 Ask me about any app!</strong>
-            <br>
-            <small>I know everything about all the apps on this page</small>
+          <div class="card-arrow">
+            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
       </div>
-      <div id="chatbot-window" class="chatbot-window hidden">
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+      <div class="filter-container">
+        <div class="filter-header">
+          <h2>Browse by Category</h2>
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search apps..." id="searchInput">
+          </div>
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterApps('all')">
+            <i class="fas fa-globe"></i>
+            <span>All Apps</span>
+          </button>
+          <button class="filter-tab" onclick="filterApps('data-analysis')">
+            <i class="fas fa-chart-line"></i>
+            <span>Data Analysis</span>
+          </button>
+          <button class="filter-tab" onclick="filterApps('ai-tools')">
+            <i class="fas fa-brain"></i>
+            <span>AI Tools</span>
+          </button>
+          <button class="filter-tab" onclick="filterApps('engineering')">
+            <i class="fas fa-cog"></i>
+            <span>Engineering</span>
+          </button>
+          <button class="filter-tab" onclick="filterApps('games')">
+            <i class="fas fa-gamepad"></i>
+            <span>Games</span>
+          </button>
+          <button class="filter-tab" onclick="filterApps('reports')">
+            <i class="fas fa-file-alt"></i>
+            <span>Reports</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps-section" id="apps">
+      <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <span>Loading applications...</span>
+      </div>
+
+      <div class="apps-grid" id="appsGrid">
+        <!-- Public Web Applications Section -->
+        <section class="app-section">
+          <h2 class="category-title">Public Web Applications</h2>
+          <div class="app-cards">
+            <div class="app-card enhanced" data-category="data-analysis">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-chart-scatter"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge popular">Popular</span>
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/scatter-plotter.jpg" alt="Scatter Plotter" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Scatter Plotter</h3>
+                <p class="app-description">Great interactive plotting tool for Excel and CSV files with advanced visualization options</p>
+                <div class="app-tags">
+                  <span class="tag">Excel</span>
+                  <span class="tag">Visualization</span>
+                  <span class="tag">Interactive</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://amsamms-scatter-plotter-scatter-plotter-f4ojyj.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="data-analysis">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge popular">Popular</span>
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/ml-algorithm.jpg" alt="Machine Learning" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Simple Machine Learner</h3>
+                <p class="app-description">Simple start for machine learning realm - no previous experience required</p>
+                <div class="app-tags">
+                  <span class="tag">ML</span>
+                  <span class="tag">Beginner</span>
+                  <span class="tag">No-Code</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://amsamms-general-machine-learning-algorithm-main-rs6nt9.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="data-analysis">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-table"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/dataset-analysis.jpg" alt="Dataset Analysis" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Dataset Analysis</h3>
+                <p class="app-description">Upload Excel or CSV file and a dynamic report will be generated</p>
+                <div class="app-tags">
+                  <span class="tag">Analytics</span>
+                  <span class="tag">Reports</span>
+                  <span class="tag">CSV</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://datasetanalysis-0.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="utilities">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/pdf-extractor.jpg" alt="PDF Extractor" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">PDF Tables Extractor</h3>
+                <p class="app-description">Upload PDF file and extract all tables from that document to downloadable CSV or Excel file</p>
+                <div class="app-tags">
+                  <span class="tag">PDF</span>
+                  <span class="tag">Tables</span>
+                  <span class="tag">Extraction</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://pdf-table-extract.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="utilities">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-image"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/image-extractor.jpg" alt="Image Extractor" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Image Tables Extractor</h3>
+                <p class="app-description">Upload PNG, JPEG, JPG file and extract all tables from that photo to downloadable CSV file</p>
+                <div class="app-tags">
+                  <span class="tag">Images</span>
+                  <span class="tag">OCR</span>
+                  <span class="tag">Tables</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://images-table-extractor.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="engineering">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge popular">Popular</span>
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/unit-converter.jpg" alt="Unit Converter" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Unit Converter</h3>
+                <p class="app-description">Universal converter up to 3 combined units, easy to use with examples</p>
+                <div class="app-tags">
+                  <span class="tag">Engineering</span>
+                  <span class="tag">Conversion</span>
+                  <span class="tag">Utility</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://unit-converter-engineering.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="engineering">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/gas-calculator.jpg" alt="Gas Calculator" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Gas Calculator</h3>
+                <p class="app-description">Input gas composition and get density, molecular weight, CP, CV, mass fraction and much more</p>
+                <div class="app-tags">
+                  <span class="tag">Gas</span>
+                  <span class="tag">Properties</span>
+                  <span class="tag">Engineering</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://gas-density-calculator-r.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="engineering">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-chart-area"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/equilibrium-envelope.jpg" alt="Equilibrium Envelope" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Equilibrium Envelope</h3>
+                <p class="app-description">Input gas composition, pressure, temperature and desired equation of state and get the plot of equilibrium envelope</p>
+                <div class="app-tags">
+                  <span class="tag">Thermodynamics</span>
+                  <span class="tag">Phase</span>
+                  <span class="tag">Equilibrium</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://envelopplotter.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="engineering">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/liquid-valve.jpg" alt="Liquid Valve" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Liquid Control Valve Evaluation</h3>
+                <p class="app-description">Estimate flowrate in existing control valves and check choked flow conditions according to actual operating conditions</p>
+                <div class="app-tags">
+                  <span class="tag">Valves</span>
+                  <span class="tag">Flow</span>
+                  <span class="tag">Control</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://liquid-control-valves-eval.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="engineering">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-wind"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/gas-valve.jpg" alt="Gas Valve" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Gas Control Valve Evaluation</h3>
+                <p class="app-description">Estimate flowrate in existing control valves and check choked flow conditions according to actual operating conditions</p>
+                <div class="app-tags">
+                  <span class="tag">Gas</span>
+                  <span class="tag">Valves</span>
+                  <span class="tag">Flow</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://gas-control-valves-evaluation.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/sabri-gpt.jpg" alt="Sabri GPT" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Sabri GPT Chatbot</h3>
+                <p class="app-description">Chatbot I created using streamlit app to make use of GPT-4 and 3.5 abilities (you must have an OpenAI API)</p>
+                <div class="app-tags">
+                  <span class="tag">GPT-4</span>
+                  <span class="tag">Chatbot</span>
+                  <span class="tag">API</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://sabri-gpt-chatbot.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-assistive-listening-systems"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/assistant-api.jpg" alt="Assistant API" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Assistant API Chatbot</h3>
+                <p class="app-description">Chatbot I created using streamlit app to make use of assistant API that OpenAI made (you must have an OpenAI API)</p>
+                <div class="app-tags">
+                  <span class="tag">Assistant</span>
+                  <span class="tag">API</span>
+                  <span class="tag">Advanced</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://assistant-api-sabri.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/rag-demo.jpg" alt="RAG Demo" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">RAG Demonstration</h3>
+                <p class="app-description">AI-powered document retrieval system using RAG (Retrieval Augmented Generation) technique. Upload Word, Excel, PDF, PowerPoint files and ask questions - the AI will retrieve and cite specific information with document name and page references. OpenAI API key is mandatory!</p>
+                <div class="app-tags">
+                  <span class="tag">RAG</span>
+                  <span class="tag">Document</span>
+                  <span class="tag">AI</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://rag-demonstration.streamlit.app/" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-rocket"></i>
+                  <span>Launch App</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI Assistants Section -->
+        <section class="app-section">
+          <h2 class="category-title">AI Assistants</h2>
+          <div class="app-cards">
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-oil-can"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge popular">Popular</span>
+                  <span class="badge free">Free</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <img src="screenshots/refinery-expert.jpg" alt="Refinery Expert" loading="lazy" onerror="this.style.display='none'">
+                <div class="image-overlay">
+                  <i class="fas fa-external-link-alt"></i>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Refinery Expert</h3>
+                <p class="app-description">Ask anything about petroleum refining, AI will answer with reference books or papers, based on GPT 3.5. You have to be a POE free subscriber</p>
+                <div class="app-tags">
+                  <span class="tag">Petroleum</span>
+                  <span class="tag">AI Chat</span>
+                  <span class="tag">Expert</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://poe.com/Refinery_expert" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-oil-can"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Refinery Advanced Expert</h3>
+                <p class="app-description">Same as Refinery Expert but based on GPT 4, so you have to be a POE premium subscriber, this should be always the first choice as it is more advanced than refinery expert bot</p>
+                <div class="app-tags">
+                  <span class="tag">GPT-4</span>
+                  <span class="tag">Premium</span>
+                  <span class="tag">Expert</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://poe.com/Refinery_expert_II" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-industry"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Oil Refinery Expert GPT</h3>
+                <p class="app-description">Answers all questions about oil refining and processing. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">ChatGPT</span>
+                  <span class="tag">Refinery</span>
+                  <span class="tag">Premium</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-qJMwAmzZE-oil-refinery-expert" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">GPSA Expert GPT</h3>
+                <p class="app-description">Answers all questions from GPSA. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">GPSA</span>
+                  <span class="tag">Engineering</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-sReBS7WaY-gpsa-expert" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-thumbs-up"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Rule of Thumb for Chemical Engineers</h3>
+                <p class="app-description">Answers all questions from Rule of thumb for chemical engineers. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">Chemical</span>
+                  <span class="tag">Engineering</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chatgpt.com/g/g-8EApuDlTv-rule-of-thumb-for-chemical-engineers" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">API PSV Design and Selection</h3>
+                <p class="app-description">Utilize API 520 part I, II, 521 and 526 to design and select safety valves. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">API</span>
+                  <span class="tag">Safety</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-kSjcS3y6E-api-psv-design-and-selection" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-fire"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">FIRED HEATER Expert GPT</h3>
+                <p class="app-description">Expert in fired heater design and calculations for oil & gas, Utilize API 530, 535, 560, 556 and 573. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">Heater</span>
+                  <span class="tag">API</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-GQ2ziq3Ak-fired-heater-expert" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-desktop"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">HYSYS Tutor/Screenshot Explainer</h3>
+                <p class="app-description">Answers all questions about HYSYS, additionally you can take screenshot from HYSYS and ask for explanations. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">HYSYS</span>
+                  <span class="tag">Tutorial</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-3iNruHIyF-hysys-screenshot-explainer" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">New Concept Simplifier</h3>
+                <p class="app-description">Simplifies new concepts using relatable analogies, then details them further on request (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">Education</span>
+                  <span class="tag">Concepts</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-V3713dVbQ-new-concept-simplifier" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">PDF to Excel Equations Transformer</h3>
+                <p class="app-description">Transforms PDF equations into Excel formulas with color-coded inputs and outputs, Excel file can then be downloaded. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">PDF</span>
+                  <span class="tag">Excel</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-PfH1RpIrK-pdf-to-excel-equations-transformer" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-mail-bulk"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">Bad Mood Mail Creator</h3>
+                <p class="app-description">Crafts professional, assertive emails from user's inputs. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">Email</span>
+                  <span class="tag">Professional</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-t7Ncd9vyV-bad-mood-mail-creator" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="app-card enhanced" data-category="ai-tools">
+              <div class="card-header">
+                <div class="app-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="app-badges">
+                  <span class="badge premium">Premium</span>
+                </div>
+              </div>
+              <div class="card-content">
+                <h3 class="app-name">REGEX Creator/Analyzer</h3>
+                <p class="app-description">Creates and explains Python-compatible regex formulas. (CHATGPT PLUS SUBSCRIBERS)</p>
+                <div class="app-tags">
+                  <span class="tag">REGEX</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">ChatGPT</span>
+                </div>
+              </div>
+              <div class="card-actions">
+                <a href="https://chat.openai.com/g/g-jzaXyG8Gn-regex-creator-analyzer" 
+                   target="_blank" 
+                   class="app-link primary">
+                  <i class="fas fa-robot"></i>
+                  <span>Chat Now</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Private Apps Section (Hidden by default) -->
+        <section id="hidden-apps" class="app-section hidden-apps" style="display: none;">
+          <h2 class="category-title">
+            <i class="fas fa-lock-open category-icon"></i>
+            Private Apps
+            <span class="unlock-badge">Unlocked!</span>
+          </h2>
+          
+          <!-- CVs Subcategory -->
+          <div class="subcategory">
+            <h3 class="subcategory-title">
+              <i class="fas fa-user-tie"></i>
+              CVs & Portfolios
+            </h3>
+            <div class="app-cards">
+              <div class="app-card enhanced" data-category="cvs">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Ahmed Mohamed Sabri</h3>
+                  <p class="app-description">Personal portfolio website showcasing professional experience, achievements, and engineering web applications. Senior Process Engineer with expertise in refinery operations and AI applications.</p>
+                  <div class="app-tags">
+                    <span class="tag">Portfolio</span>
+                    <span class="tag">Engineer</span>
+                    <span class="tag">CV</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/ahmed_mohamed_sabri/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Portfolio</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="cvs">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Amr CV</h3>
+                  <p class="app-description">Professional CV website showcasing Amr's qualifications, experience, and achievements</p>
+                  <div class="app-tags">
+                    <span class="tag">CV</span>
+                    <span class="tag">Professional</span>
+                    <span class="tag">Portfolio</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Amr-CV/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View CV</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Games Subcategory -->
+          <div class="subcategory">
+            <h3 class="subcategory-title">
+              <i class="fas fa-gamepad"></i>
+              Games
+            </h3>
+            <div class="app-cards games-grid">
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-snake"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-image">
+                  <img src="screenshots/snake-battle.jpg" alt="Snake Battle" loading="lazy" onerror="this.style.display='none'">
+                  <div class="image-overlay">
+                    <i class="fas fa-gamepad"></i>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Snake Battle</h3>
+                  <p class="app-description">A thrilling multiplayer snake game where you compete against AI opponents. Control your snake using arrow keys or WASD, collect food to grow longer, and try to outmaneuver your opponents.</p>
+                  <div class="app-tags">
+                    <span class="tag">Multiplayer</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Arcade</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/snake-battle/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-mouse-pointer"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-image">
+                  <img src="screenshots/reaction-clicker.jpg" alt="Reaction Clicker" loading="lazy" onerror="this.style.display='none'">
+                  <div class="image-overlay">
+                    <i class="fas fa-gamepad"></i>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Reaction Clicker</h3>
+                  <p class="app-description">Test your reflexes in this fast-paced clicking game! Click as fast as you can to increase your score and combo multiplier. The game gets progressively faster, challenging your reaction time and coordination.</p>
+                  <div class="app-tags">
+                    <span class="tag">Reflexes</span>
+                    <span class="tag">Clicking</span>
+                    <span class="tag">Speed</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://Amsamms.github.io/reaction-clicker/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-rocket"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-image">
+                  <img src="screenshots/rubber-chicken.jpg" alt="Rubber Chicken Launcher" loading="lazy" onerror="this.style.display='none'">
+                  <div class="image-overlay">
+                    <i class="fas fa-gamepad"></i>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Rubber Chicken Launcher</h3>
+                  <p class="app-description">A fun physics-based game where you launch a rubber chicken as far as possible. Adjust angle and power, then watch it fly!</p>
+                  <div class="app-tags">
+                    <span class="tag">Physics</span>
+                    <span class="tag">Launcher</span>
+                    <span class="tag">Fun</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Rubber-Chicken-Launcher/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-palette"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-image">
+                  <img src="screenshots/painter.jpg" alt="Painter" loading="lazy" onerror="this.style.display='none'">
+                  <div class="image-overlay">
+                    <i class="fas fa-gamepad"></i>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Painter</h3>
+                  <p class="app-description">A digital painting canvas where you can draw, paint, and create artwork with various tools and colors and download them</p>
+                  <div class="app-tags">
+                    <span class="tag">Art</span>
+                    <span class="tag">Drawing</span>
+                    <span class="tag">Creative</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/painter/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Start Drawing</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-running"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Neon Dash</h3>
+                  <p class="app-description">A fast-paced neon-themed endless runner game where you dash through obstacles in a vibrant cyberpunk world</p>
+                  <div class="app-tags">
+                    <span class="tag">Neon</span>
+                    <span class="tag">Runner</span>
+                    <span class="tag">Endless</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Neon-Dash/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-circle"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Circle Pong</h3>
+                  <p class="app-description">A circular twist on the classic pong game. Keep the ball bouncing inside the circle as long as you can!</p>
+                  <div class="app-tags">
+                    <span class="tag">Pong</span>
+                    <span class="tag">Circular</span>
+                    <span class="tag">Classic</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Circle-pong/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-spell-check"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Time Words</h3>
+                  <p class="app-description">A fun word puzzle game where you control time by writing the correct spelling of words</p>
+                  <div class="app-tags">
+                    <span class="tag">Words</span>
+                    <span class="tag">Puzzle</span>
+                    <span class="tag">Time</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/time-words/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-chess"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Sabri Chess Game</h3>
+                  <p class="app-description">A classical chess game with full chess rules and 2 players. There is also Sabri mode, discover it yourself!</p>
+                  <div class="app-tags">
+                    <span class="tag">Chess</span>
+                    <span class="tag">Strategy</span>
+                    <span class="tag">2-Player</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/chess_game/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-running"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Neon Runner</h3>
+                  <p class="app-description">A fast-paced runner game with neon graphics where you dodge obstacles and collect gems while running from red foes</p>
+                  <div class="app-tags">
+                    <span class="tag">Runner</span>
+                    <span class="tag">Neon</span>
+                    <span class="tag">Action</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Neon-runner/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="games">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-bug"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Wheck-a-bug</h3>
+                  <p class="app-description">A fun bug-whacking game where you test your reflexes by whacking bugs as they appear. Fast-paced action with scoring and timing challenges!</p>
+                  <div class="app-tags">
+                    <span class="tag">Whack</span>
+                    <span class="tag">Reflexes</span>
+                    <span class="tag">Action</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Wheck-a-bug/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-play"></i>
+                    <span>Play Game</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools Subcategory -->
+          <div class="subcategory">
+            <h3 class="subcategory-title">
+              <i class="fas fa-tools"></i>
+              Tools
+            </h3>
+            <div class="app-cards">
+              <div class="app-card enhanced" data-category="tools">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Simple Regression Tool</h3>
+                  <p class="app-description">A tool for performing simple regression analysis on data</p>
+                  <div class="app-tags">
+                    <span class="tag">Regression</span>
+                    <span class="tag">Analysis</span>
+                    <span class="tag">Data</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://simple-regression-tool.streamlit.app/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch Tool</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="tools">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-film"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Movie Retriever</h3>
+                  <p class="app-description">Retrieve data about any movie using Movies database API</p>
+                  <div class="app-tags">
+                    <span class="tag">Movies</span>
+                    <span class="tag">API</span>
+                    <span class="tag">Database</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://movie-retriever.streamlit.app/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch Tool</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="tools">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-atom"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">H2 Predictor for Recycle Gas in Platformer Unit</h3>
+                  <p class="app-description">DEPI project for prediction hydrogen content from macro only</p>
+                  <div class="app-tags">
+                    <span class="tag">H2</span>
+                    <span class="tag">Prediction</span>
+                    <span class="tag">Platformer</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://h2-prediction.streamlit.app/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch Tool</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="tools">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-calculator"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Advanced Calculator</h3>
+                  <p class="app-description">A comprehensive calculator with basic arithmetic, scientific functions, and advanced mathematical operations for engineering and scientific calculations</p>
+                  <div class="app-tags">
+                    <span class="tag">Calculator</span>
+                    <span class="tag">Scientific</span>
+                    <span class="tag">Engineering</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/calculator/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch Tool</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="tools">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Unit Converter (HTML)</h3>
+                  <p class="app-description">This is a unit converter tool, fast, accurate and mobile friendly with modern design, if you want to add units, message me!</p>
+                  <div class="app-tags">
+                    <span class="tag">Converter</span>
+                    <span class="tag">Mobile</span>
+                    <span class="tag">Fast</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/unit_converters_html/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch Tool</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Client Apps Subcategory -->
+          <div class="subcategory">
+            <h3 class="subcategory-title">
+              <i class="fas fa-users"></i>
+              Client Apps
+            </h3>
+            <div class="app-cards">
+              <div class="app-card enhanced" data-category="client-apps">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-futbol"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">AI League Analyzer</h3>
+                  <p class="app-description">A web app that let user upload video for football players and analysis their play using Gemini</p>
+                  <div class="app-tags">
+                    <span class="tag">Football</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Analysis</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://ai-league.streamlit.app/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch App</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="client-apps">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-language"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Shatar HTML Generator</h3>
+                  <p class="app-description">Arabic poem generator web application for creating beautiful Arabic poetry and verses using HTML interface</p>
+                  <div class="app-tags">
+                    <span class="tag">Arabic</span>
+                    <span class="tag">Poetry</span>
+                    <span class="tag">Generator</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://shatar-html.vercel.app/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Launch App</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Reports Subcategory -->
+          <div class="subcategory">
+            <h3 class="subcategory-title">
+              <i class="fas fa-chart-bar"></i>
+              Interactive Reports & Web Apps
+            </h3>
+            <div class="app-cards">
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Managerial Economics</h3>
+                  <p class="app-description">Interactive description for some basic economic concepts</p>
+                  <div class="app-tags">
+                    <span class="tag">Economics</span>
+                    <span class="tag">Interactive</span>
+                    <span class="tag">Education</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Managerial-economics/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Centralization vs Decentralization</h3>
+                  <p class="app-description">تطبيق تفاعلي يشرح الفرق بين المركزية واللامركزية في المؤسسات والدول باللغة العربية</p>
+                  <div class="app-tags">
+                    <span class="tag">Arabic</span>
+                    <span class="tag">Management</span>
+                    <span class="tag">Interactive</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/centralization_vs_decentralization/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-oil-can"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Petroleum Refining & Petrochemicals Evolution</h3>
+                  <p class="app-description">A visual and interactive timeline of the evolution of petroleum refining and petrochemicals industries</p>
+                  <div class="app-tags">
+                    <span class="tag">Petroleum</span>
+                    <span class="tag">History</span>
+                    <span class="tag">Timeline</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/petroleum-refining-and-petrochemicals-evolution/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-road"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Pitch to Asphalt</h3>
+                  <p class="app-description">Interactive web application for pitch to asphalt conversion report visualization</p>
+                  <div class="app-tags">
+                    <span class="tag">Asphalt</span>
+                    <span class="tag">Pitch</span>
+                    <span class="tag">Conversion</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/pitch-to-asphalt/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-leaf"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Decarbonization</h3>
+                  <p class="app-description">Interactive web application about decarbonization strategies and technologies</p>
+                  <div class="app-tags">
+                    <span class="tag">Environment</span>
+                    <span class="tag">Carbon</span>
+                    <span class="tag">Strategies</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/decarbonization/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Process Safety AI</h3>
+                  <p class="app-description">Report about advancing process safety using AI and Egypt's role in advancing process safety throughout oil and gas sector</p>
+                  <div class="app-tags">
+                    <span class="tag">Safety</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Egypt</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/process-safety-AI/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-hard-hat"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">CCPS Risk-Based Process Safety Framework</h3>
+                  <p class="app-description">Comprehensive guide to CCPS Risk-Based Process Safety Framework covering pillars, elements, and real-world applications</p>
+                  <div class="app-tags">
+                    <span class="tag">CCPS</span>
+                    <span class="tag">Safety</span>
+                    <span class="tag">Framework</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/CCPS-Risk-Based-Process-Safety-Framework-Pillars-Elements-and-Real-World-Applications/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-industry"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Platforming Technologies</h3>
+                  <p class="app-description">Interactive web application explaining platforming technologies in petroleum refining with comprehensive resources and visual guides</p>
+                  <div class="app-tags">
+                    <span class="tag">Platforming</span>
+                    <span class="tag">Technology</span>
+                    <span class="tag">Refining</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Platforming_technologies/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Process Safety Case Studies for Refineries</h3>
+                  <p class="app-description">Interactive case studies of 8 major accidents in petroleum refineries with detailed process safety analysis and lessons learned</p>
+                  <div class="app-tags">
+                    <span class="tag">Safety</span>
+                    <span class="tag">Case Studies</span>
+                    <span class="tag">Accidents</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Process_safety_case_studies_for_refineries/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">AI Coding Assistants 2025</h3>
+                  <p class="app-description">Comprehensive comparison of AI coding assistants including Copilot, Cursor, and WindSurf for 2025 development workflows</p>
+                  <div class="app-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Coding</span>
+                    <span class="tag">2025</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Ai_coding_assistants_2025/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Energy Consumption Reduction in Petroleum Refineries</h3>
+                  <p class="app-description">Interactive web application focused on strategies and technologies for reducing energy consumption in petroleum refineries</p>
+                  <div class="app-tags">
+                    <span class="tag">Energy</span>
+                    <span class="tag">Reduction</span>
+                    <span class="tag">Refinery</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Energy_consumpion_reduction_in_petroleum_refineries/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Refinery Energy Reduction Case Studies</h3>
+                  <p class="app-description">Comprehensive case studies showcasing real-world energy reduction projects and their implementation in petroleum refineries</p>
+                  <div class="app-tags">
+                    <span class="tag">Energy</span>
+                    <span class="tag">Case Studies</span>
+                    <span class="tag">Implementation</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Refinery-Energy-Reduction-Case-Studies/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">AI for Refinery Energy Savings</h3>
+                  <p class="app-description">Interactive application exploring AI-powered solutions and technologies for optimizing energy efficiency in petroleum refineries</p>
+                  <div class="app-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Energy</span>
+                    <span class="tag">Optimization</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/AI-for-Refinery-Energy-Savings/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-fire"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Refinery Heaters Optimization</h3>
+                  <p class="app-description">Interactive application focused on optimization techniques and strategies for petroleum refinery fired heaters</p>
+                  <div class="app-tags">
+                    <span class="tag">Heaters</span>
+                    <span class="tag">Optimization</span>
+                    <span class="tag">Refinery</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Refinery-heaters-optimization/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-flask"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Distillation Tower Operation Optimization</h3>
+                  <p class="app-description">Interactive web application for optimizing distillation tower operation and performance in process industries</p>
+                  <div class="app-tags">
+                    <span class="tag">Distillation</span>
+                    <span class="tag">Tower</span>
+                    <span class="tag">Optimization</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Distillation-Tower-Operation-Optimization/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-compress"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">Refinery Compressors Optimization</h3>
+                  <p class="app-description">Interactive web application focused on energy optimization techniques and strategies for petroleum refinery compressors</p>
+                  <div class="app-tags">
+                    <span class="tag">Compressors</span>
+                    <span class="tag">Optimization</span>
+                    <span class="tag">Energy</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/Refinery-compressors-optimization/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="app-card enhanced" data-category="reports">
+                <div class="card-header">
+                  <div class="app-icon">
+                    <i class="fas fa-columns"></i>
+                  </div>
+                  <div class="app-badges">
+                    <span class="badge private">Private</span>
+                    <span class="badge free">Free</span>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h3 class="app-name">DWC Energy Saving</h3>
+                  <p class="app-description">A report explaining the theory and benefits of divided wall columns over conventional distillation columns in both capital cost and energy saving</p>
+                  <div class="app-tags">
+                    <span class="tag">DWC</span>
+                    <span class="tag">Energy</span>
+                    <span class="tag">Distillation</span>
+                  </div>
+                </div>
+                <div class="card-actions">
+                  <a href="https://amsamms.github.io/DWC_energy_saving/" 
+                     target="_blank" 
+                     class="app-link primary">
+                    <i class="fas fa-eye"></i>
+                    <span>View Report</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-heart section-icon"></i>
+          What Users Say
+        </h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"The dataset analysis tool saved me hours of work. Great for quick insights!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Data Analyst</h4>
+              <span>Engineering Firm</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Refinery Expert AI is incredibly knowledgeable. Feels like having an expert consultant."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Process Engineer</h4>
+              <span>Oil & Gas Company</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Love the variety of tools. From serious work apps to fun games and detailed reports!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="author-info">
+              <h4>Software Developer</h4>
+              <span>Tech Startup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Chatbot -->
+    <div id="chatbot-container" class="chatbot-container enhanced">
+      <div id="chatbot-toggle" class="chatbot-toggle enhanced">
+        <i class="fas fa-robot"></i>
+        <div class="chatbot-pulse"></div>
+        <div class="chatbot-notification">
+          <span>Ask me about any of the 61 apps!</span>
+        </div>
+      </div>
+      <div id="chatbot-window" class="chatbot-window enhanced hidden">
         <div class="chatbot-header">
-          <h4>🤖 Web Apps Assistant</h4>
-          <div class="chatbot-header-buttons">
-            <button id="chatbot-clear" title="Clear Conversation" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; margin-right: 8px;">🗑️</button>
-            <button id="chatbot-close">×</button>
+          <div class="chatbot-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="chatbot-info">
+            <h4>Complete Apps Assistant</h4>
+            <span class="chatbot-status">Online • AI Powered</span>
+          </div>
+          <div class="chatbot-actions">
+            <button id="chatbot-clear" class="chatbot-action-btn" title="Clear Conversation">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button id="chatbot-close" class="chatbot-action-btn">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
         </div>
-        <div id="chatbot-messages" class="chatbot-messages">
-          <div class="message bot">
+        <div id="chatbot-messages" class="chatbot-messages enhanced">
+          <div class="message bot welcome">
+            <div class="message-avatar">
+              <i class="fas fa-robot"></i>
+            </div>
             <div class="message-content">
-              Hi! I'm your Web Apps Assistant. 🤖 I can help you find the right app for your needs or answer questions about any of the applications. 
-              
-              <br><br><strong>Powered by Ministral 3B AI</strong> - I have complete knowledge of all apps and can help you find exactly what you need! Try asking about games, data analysis, engineering tools, or AI assistants.
+              <div class="message-bubble">
+                <p>👋 Hello! I'm your AI assistant for this complete portfolio of 61 applications.</p>
+                <p>I can help you:</p>
+                <ul>
+                  <li>🔍 Find the right app from all 61 tools</li>
+                  <li>💡 Get recommendations based on your needs</li>
+                  <li>❓ Answer questions about any application</li>
+                  <li>🎮 Guide you to games and interactive reports</li>
+                  <li>🔓 Help you unlock the private apps section</li>
+                </ul>
+                <p><strong>Try asking:</strong> "Show me all games" or "What engineering tools are available?"</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="chatbot-input-container">
-          <input type="text" id="chatbot-input" placeholder="Ask about any web app..." maxlength="500">
-          <button id="chatbot-send">
+        <div class="chatbot-input-container enhanced">
+          <input type="text" 
+                 id="chatbot-input" 
+                 placeholder="Ask about any of the 61 apps or describe what you need..." 
+                 maxlength="500">
+          <button id="chatbot-send" class="chatbot-send-btn">
             <i class="fas fa-paper-plane"></i>
           </button>
         </div>
         <div class="chatbot-footer">
-          <small>Powered by Ministral 3B • Stateless & Context-Aware • Ultra Low-Cost AI</small>
+          <small>Powered by Ministral 3B AI • Context-Aware • Ultra Fast</small>
         </div>
       </div>
     </div>
 
-    <!-- Donation Section -->
-    <div class="donation-section">
-      <h3 class="donation-title">Support This Work</h3>
-      <p class="donation-text">
-        All these applications and resources are provided completely free of charge. 
-        If you find them valuable and would like to encourage continued development, 
-        any small contribution would be greatly appreciated! 🙏
-      </p>
-      <div class="donation-buttons">
-        <a href="#" onclick="handleDonation(2)" class="donation-btn">
-          <span class="donation-amount">$2</span>
-          <span class="donation-label">Coffee ☕</span>
-        </a>
-        <a href="#" onclick="handleDonation(5)" class="donation-btn">
-          <span class="donation-amount">$5</span>
-          <span class="donation-label">Lunch 🍽️</span>
-        </a>
-        <a href="#" onclick="handleDonation(10)" class="donation-btn">
-          <span class="donation-amount">$10</span>
-          <span class="donation-label">Support 💖</span>
-        </a>
+    <!-- Enhanced Donation Section -->
+    <div class="donation-section enhanced">
+      <div class="donation-content">
+        <div class="donation-header">
+          <h3 class="donation-title">
+            <i class="fas fa-heart"></i>
+            Support This Work
+          </h3>
+          <p class="donation-text">
+            All 61 applications are provided completely free of charge. Your support helps 
+            maintain and improve these tools for everyone.
+          </p>
+        </div>
+        <div class="donation-buttons">
+          <a href="#" onclick="handleDonation(2)" class="donation-btn coffee">
+            <div class="btn-icon"><i class="fas fa-coffee"></i></div>
+            <div class="btn-content">
+              <span class="amount">$2</span>
+              <span class="label">Buy me a coffee</span>
+            </div>
+          </a>
+          <a href="#" onclick="handleDonation(5)" class="donation-btn lunch">
+            <div class="btn-icon"><i class="fas fa-utensils"></i></div>
+            <div class="btn-content">
+              <span class="amount">$5</span>
+              <span class="label">Support development</span>
+            </div>
+          </a>
+          <a href="#" onclick="handleDonation(10)" class="donation-btn support">
+            <div class="btn-icon"><i class="fas fa-heart"></i></div>
+            <div class="btn-content">
+              <span class="amount">$10</span>
+              <span class="label">Fuel innovation</span>
+            </div>
+          </a>
+        </div>
+        <p class="donation-note">
+          <i class="fas fa-shield-alt"></i>
+          Secure payments via PayPal
+        </p>
       </div>
-      <p class="donation-note">
-        <small>Powered by PayPal - Secure & Easy</small>
-      </p>
     </div>
 
     <div class="signature">- Amsamms</div>
   </div>
 
   <script type="module" src="background.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const searchInput = document.getElementById('searchInput');
-      const appCards = document.querySelectorAll('.app-card');
-      const loading = document.querySelector('.loading');
-      const hiddenApps = document.getElementById('hidden-apps');
-
-      // Track page load
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'page_load_complete', {
-          event_category: 'engagement',
-          event_label: 'page_ready'
-        });
-        console.log('Page load tracked in GA4');
-      }
-
-      // Multi-tap functionality
-      let tapCount = 0;
-      let tapTimer = null;
-      const requiredTaps = 8; // Require 8 taps
-      const tapTimeout = 2000; // Reset after 2 seconds
-      
-      // Get the title element for tapping
-      const titleElement = document.querySelector('h1'); // "Web Apps" title
-      
-      // Function to show toast notification
-      function showToast(message) {
-        const toast = document.createElement('div');
-        toast.textContent = message;
-        toast.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          background: #333;
-          color: white;
-          padding: 10px 20px;
-          border-radius: 5px;
-          z-index: 1000;
-          opacity: 0;
-          transition: opacity 0.3s;
-          font-size: 14px;
-        `;
-        
-        document.body.appendChild(toast);
-        setTimeout(() => toast.style.opacity = '1', 100);
-        setTimeout(() => {
-          toast.style.opacity = '0';
-          setTimeout(() => document.body.removeChild(toast), 300);
-        }, 2000);
-      }
-
-      // Add tap functionality to title
-      titleElement.addEventListener('click', function(e) {
-        // Prevent normal link behavior if any
-        e.preventDefault();
-        
-        tapCount++;
-        
-        // Add haptic feedback for mobile (if supported)
-        if ('vibrate' in navigator) {
-          navigator.vibrate(50);
-        }
-        
-        // Clear existing timer
-        if (tapTimer) {
-          clearTimeout(tapTimer);
-        }
-        
-        // Visual feedback - small scale animation
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          this.style.transform = 'scale(1)';
-        }, 100);
-        
-        // Optional: Add a subtle color change to indicate tap
-        this.style.color = '#3b82f6';
-        setTimeout(() => {
-          this.style.color = '';
-        }, 200);
-        
-        console.log(`Tap ${tapCount}/${requiredTaps}`); // For debugging
-        
-        if (tapCount >= requiredTaps) {
-          // Show hidden apps
-          hiddenApps.style.display = 'block';
-          hiddenApps.classList.add('fade-in');
-          
-          // Mark as unlocked to hide the hint
-          document.body.classList.add('unlocked');
-          
-          // Reset counter
-          tapCount = 0;
-          
-          // Show success message
-          showToast('Private apps unlocked! 🔓');
-          
-          // Track private apps unlock event
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'private_apps_unlocked', {
-              event_category: 'engagement',
-              event_label: 'secret_section_accessed',
-              value: 1
-            });
-            console.log('Private apps unlock tracked in GA4');
-          }
-          
-          // Optional: scroll to private apps section
-          setTimeout(() => {
-            hiddenApps.scrollIntoView({ behavior: 'smooth' });
-          }, 500);
-          
-        } else {
-          // Show progress for user feedback
-          if (tapCount > 1) {
-            showToast(`${tapCount}/${requiredTaps} taps...`);
-          }
-          
-          // Reset counter after timeout
-          tapTimer = setTimeout(() => {
-            tapCount = 0;
-            console.log('Tap counter reset'); // For debugging
-          }, tapTimeout);
-        }
-      });
-
-      // Add fade-in animation to cards
-      appCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.classList.add('fade-in');
-      });
-
-      // Search functionality
-      searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        loading.style.display = 'block';
-
-        setTimeout(() => {
-          appCards.forEach(card => {
-            const link = card.querySelector('.app-link');
-            const tooltip = card.querySelector('.tooltiptext');
-            const text = (link.textContent + ' ' + tooltip.textContent).toLowerCase();
-            
-            if (text.includes(searchTerm)) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-          loading.style.display = 'none';
-        }, 300);
-      });
-
-      // Add hover effect to cards
-      appCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-3px)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0)';
-        });
-      });
-
-      // Welcome bot actions
-      const welcomeBot = document.getElementById('welcome-bot');
-      const botExplore = document.getElementById('bot-explore');
-      const botChat = document.getElementById('bot-chat');
-      const botDismiss = document.getElementById('bot-dismiss');
-
-      // Show welcome bot on page load
-      setTimeout(() => {
-        welcomeBot.classList.add('visible');
-      }, 500);
-
-      // Explore apps button
-      botExplore.addEventListener('click', () => {
-        welcomeBot.classList.remove('visible');
-        // Smooth scroll to apps grid
-        document.getElementById('appsGrid').scrollIntoView({ behavior: 'smooth' });
-      });
-
-      // Chat with bot button
-      botChat.addEventListener('click', () => {
-        welcomeBot.classList.remove('visible');
-        // Open chatbot window
-        const chatbot = document.getElementById('chatbot-window');
-        chatbot.classList.remove('hidden');
-        chatbot.querySelector('#chatbot-input').focus();
-      });
-
-      // Dismiss bot button
-      botDismiss.addEventListener('click', () => {
-        welcomeBot.classList.remove('visible');
-      });
-    });
-
-    // Donation handling function
-    function handleDonation(amount) {
-      // Show thank you modal first
-      showThankYouModal(amount);
-      
-      // Open PayPal in new tab after a short delay
-      setTimeout(() => {
-        window.open(`https://paypal.me/AhmedSabri85/${amount}`, '_blank');
-      }, 1000);
-    }
-
-    function showThankYouModal(amount) {
-      // Create modal backdrop
-      const modal = document.createElement('div');
-      modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backdrop-filter: blur(5px);
-      `;
-
-      // Create modal content
-      const modalContent = document.createElement('div');
-      modalContent.style.cssText = `
-        background: linear-gradient(135deg, #1e293b, #334155);
-        border-radius: 20px;
-        padding: 2rem;
-        max-width: 500px;
-        width: 90%;
-        text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        color: #f8fafc;
-      `;
-
-      modalContent.innerHTML = `
-        <div style="font-size: 3rem; margin-bottom: 1rem;">🙏</div>
-        <h2 style="color: #db2777; margin-bottom: 1rem; font-size: 1.5rem;">Thank You So Much!</h2>
-        <p style="margin-bottom: 1.5rem; line-height: 1.6;">
-          Your $${amount} contribution means the world to me! As a special thank you, 
-          here's a little secret... 🤫
-        </p>
-        <div style="background: rgba(79, 70, 229, 0.2); border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid rgba(79, 70, 229, 0.3);">
-          <p style="font-weight: 600; color: #4f46e5; margin-bottom: 0.5rem;">🔓 Secret Tip:</p>
-          <p style="font-size: 0.9rem;">Tap the "Web Apps" title <strong>8 times</strong> to unlock a hidden private section with exclusive apps and resources!</p>
-        </div>
-        <p style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 1.5rem;">
-          You'll be redirected to PayPal to complete your donation in a few seconds...
-        </p>
-        <button onclick="closeModal()" style="
-          background: linear-gradient(135deg, #4f46e5, #7c3aed);
-          color: white;
-          border: none;
-          padding: 0.8rem 1.5rem;
-          border-radius: 8px;
-          cursor: pointer;
-          font-size: 1rem;
-          transition: transform 0.2s ease;
-        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-          Got it! 🚀
-        </button>
-      `;
-
-      modal.appendChild(modalContent);
-      document.body.appendChild(modal);
-
-      // Auto close after 12 seconds
-      setTimeout(() => {
-        if (document.body.contains(modal)) {
-          document.body.removeChild(modal);
-        }
-      }, 12000);
-
-      // Make modal globally accessible for closing
-      window.currentModal = modal;
-    }
-
-    function closeModal() {
-      if (window.currentModal && document.body.contains(window.currentModal)) {
-        document.body.removeChild(window.currentModal);
-        window.currentModal = null;
-      }
-    }
-
-    // Close modal on click outside
-    document.addEventListener('click', function(e) {
-      if (window.currentModal && e.target === window.currentModal) {
-        closeModal();
-      }
-    });
-
-    // Chatbot functionality
-    class WebAppsChatbot {
-      constructor() {
-        // Use Ministral 3B API - extremely cost-effective
-        this.useDemoMode = false; // Switch to real API
-        this.useMinistralAPI = true; // Use Ministral instead of Gemini
-        
-        // AI-POWERED RESPONSES ENABLED!
-        // API key configured for Mistral 3B
-        // Cost: Only $0.04 per million tokens (extremely cheap!)
-        this.apiKey = 'mnmKw0OPPoClTcjqaOpJDGO4ZLJLH93M'; // Your actual API key
-        
-        this.apiUrl = 'https://api.mistral.ai/v1/chat/completions';
-        this.model = 'ministral-3b-2410'; // Ministral 3B exact model version
-        this.isTyping = false;
-        this.requestCount = 0;
-        this.maxRequests = 10000; // Much higher since it's so cheap
-        
-        // Attention animation state
-        this.hasInteracted = localStorage.getItem('chatbot-interacted') === 'true';
-        
-        this.initializeElements();
-        this.attachEventListeners();
-        this.setupAttentionAnimations();
-      }
-
-      initializeElements() {
-        this.toggle = document.getElementById('chatbot-toggle');
-        this.window = document.getElementById('chatbot-window');
-        this.closeBtn = document.getElementById('chatbot-close');
-        this.clearBtn = document.getElementById('chatbot-clear');
-        this.messages = document.getElementById('chatbot-messages');
-        this.input = document.getElementById('chatbot-input');
-        this.sendBtn = document.getElementById('chatbot-send');
-        
-        // Debug: Check if elements are found
-        console.log('Chatbot elements initialized:', {
-          toggle: !!this.toggle,
-          window: !!this.window,
-          closeBtn: !!this.closeBtn,
-          clearBtn: !!this.clearBtn,
-          messages: !!this.messages,
-          input: !!this.input,
-          sendBtn: !!this.sendBtn
-        });
-      }
-
-      attachEventListeners() {
-        this.toggle.addEventListener('click', () => {
-          this.toggleWindow();
-          this.hideAttentionAnimations();
-        });
-        this.closeBtn.addEventListener('click', () => this.closeWindow());
-        this.clearBtn.addEventListener('click', () => this.clearConversation());
-        this.sendBtn.addEventListener('click', () => {
-          this.sendMessage();
-          this.hideAttentionAnimations();
-        });
-        this.input.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            this.sendMessage();
-            this.hideAttentionAnimations();
-          }
-        });
-      }
-
-      setupAttentionAnimations() {
-        this.pulseRing = document.querySelector('.chatbot-pulse-ring');
-        this.tooltip = document.querySelector('.chatbot-tooltip');
-        
-        console.log('Attention elements found:', {
-          pulseRing: !!this.pulseRing,
-          tooltip: !!this.tooltip,
-          hasInteracted: this.hasInteracted
-        });
-        
-        if (!this.hasInteracted) {
-          console.log('New visitor detected - showing attention animations in 2 seconds...');
-          // Show attention animations for new visitors
-          setTimeout(() => {
-            console.log('Showing attention animations now!');
-            if (this.pulseRing) {
-              this.pulseRing.style.setProperty('display', 'block', 'important');
-              console.log('Pulse ring shown');
-            }
-            if (this.tooltip) {
-              this.tooltip.style.setProperty('display', 'block', 'important');
-              console.log('Tooltip shown');
-            }
-          }, 2000); // Show after 2 seconds
-          
-          // Auto-hide after 15 seconds to not be annoying
-          setTimeout(() => {
-            console.log('Auto-hiding attention animations after 15 seconds');
-            this.hideAttentionAnimations();
-          }, 17000);
-        } else {
-          console.log('Returning visitor - hiding attention animations');
-          // Hide for returning users
-          this.hideAttentionAnimations();
-        }
-      }
-
-      hideAttentionAnimations() {
-        if (this.pulseRing) {
-          this.pulseRing.style.setProperty('display', 'none', 'important');
-        }
-        if (this.tooltip) {
-          this.tooltip.style.setProperty('display', 'none', 'important');
-        }
-        
-        // Remember that user has interacted
-        this.hasInteracted = true;
-        localStorage.setItem('chatbot-interacted', 'true');
-      }
-
-      toggleWindow() {
-        console.log('Toggle window clicked, current state:', this.window.classList.contains('hidden'));
-        this.window.classList.toggle('hidden');
-        console.log('New state after toggle:', this.window.classList.contains('hidden'));
-        if (!this.window.classList.contains('hidden')) {
-          this.input.focus();
-        }
-      }
-
-      closeWindow() {
-        this.window.classList.add('hidden');
-      }
-
-      clearConversation() {
-        // Clear visual messages except the initial greeting
-        const messages = this.messages.querySelectorAll('.message');
-        messages.forEach((message, index) => {
-          if (index > 0) { // Keep the first message (greeting)
-            message.remove();
-          }
-        });
-        
-        // Show confirmation
-        this.addMessage('Chat cleared! 🧹 Each message is now processed independently with fresh context.', 'bot');
-        
-        console.log('Chat cleared. Each message is processed independently (stateless).');
-        
-        // Easter egg: if user clears 3 times rapidly, reset attention animations
-        if (!this.clearCount) this.clearCount = 0;
-        this.clearCount++;
-        if (this.clearCount >= 3) {
-          localStorage.removeItem('chatbot-interacted');
-          this.addMessage('🎉 Attention animations reset! Refresh the page to see them again.', 'bot');
-          this.clearCount = 0;
-        }
-      }
-
-      async sendMessage() {
-        const message = this.input.value.trim();
-        if (!message || this.isTyping) return;
-
-        // Rate limiting check
-        if (this.requestCount >= this.maxRequests) {
-          this.addMessage('Rate limit reached. Please try again later.', 'bot');
-          return;
-        }
-
-        this.addMessage(message, 'user');
-        this.input.value = '';
-        this.input.disabled = true;
-        this.sendBtn.disabled = true;
-        
-        this.showTypingIndicator();
-        
-        try {
-          let response;
-          if (this.useDemoMode) {
-            response = await this.getDemoResponse(message);
-          } else if (this.useMinistralAPI) {
-            response = await this.callMinistralAPI(message);
-          } else {
-            response = await this.callGeminiAPI(message);
-          }
-          
-          this.hideTypingIndicator();
-          this.addMessage(response, 'bot');
-          
-          this.requestCount++;
-        } catch (error) {
-          this.hideTypingIndicator();
-          console.error('Chatbot error details:', error);
-          console.error('Error type:', typeof error);
-          console.error('Error stack:', error.stack);
-          
-          // Always try demo mode as fallback if API fails
-          try {
-            console.log('API failed, falling back to demo mode...');
-            const demoResponse = await this.getDemoResponse(message);
-            this.addMessage(demoResponse + '\n\n⚠️ API unavailable - using intelligent local processing', 'bot');
-            
-            this.requestCount++;
-            this.input.disabled = false;
-            this.sendBtn.disabled = false;
-            this.input.focus();
-            return;
-          } catch (demoError) {
-            console.error('Demo fallback also failed:', demoError);
-          }
-          
-          let errorMessage = 'Sorry, I encountered an error. ';
-          if (this.useDemoMode) {
-            errorMessage += 'Demo mode is active. For full functionality, please configure a valid Ministral API key.';
-          } else if (this.useMinistralAPI && error.message.includes('API key not configured')) {
-            errorMessage += 'Please configure your Ministral API key for AI-powered responses.';
-          } else if (error.message.includes('403')) {
-            errorMessage += 'API key issue or quota exceeded.';
-          } else if (error.message.includes('429')) {
-            errorMessage += 'Too many requests. Please wait a moment.';
-          } else if (error.message.includes('400')) {
-            errorMessage += 'Invalid request format.';
-          } else {
-            errorMessage += 'Please try again or check your connection.';
-            errorMessage += ` (Error: ${error.message})`;
-          }
-          
-          this.addMessage(errorMessage, 'bot');
-        }
-        
-        this.input.disabled = false;
-        this.sendBtn.disabled = false;
-        this.input.focus();
-      }
-
-      addMessage(content, sender) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${sender}`;
-        
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'message-content';
-        contentDiv.textContent = content;
-        
-        messageDiv.appendChild(contentDiv);
-        this.messages.appendChild(messageDiv);
-        
-        this.messages.scrollTop = this.messages.scrollHeight;
-      }
-
-      showTypingIndicator() {
-        this.isTyping = true;
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'message bot';
-        typingDiv.id = 'typing-indicator';
-        
-        typingDiv.innerHTML = `
-          <div class="typing-indicator">
-            <span>Assistant is typing</span>
-            <div class="typing-dots">
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
-            </div>
-          </div>
-        `;
-        
-        this.messages.appendChild(typingDiv);
-        this.messages.scrollTop = this.messages.scrollHeight;
-      }
-
-      hideTypingIndicator() {
-        this.isTyping = false;
-        const typingIndicator = document.getElementById('typing-indicator');
-        if (typingIndicator) {
-          typingIndicator.remove();
-        }
-      }
-
-      async getDemoResponse(userMessage) {
-        console.log('getDemoResponse called with:', userMessage); // Debug log
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
-        
-        // Get the complete HTML content of the page to use as knowledge base
-        const getPageContent = () => {
-          const appsGrid = document.getElementById('appsGrid');
-          if (!appsGrid) return '';
-          
-          let pageContent = 'COMPLETE WEB APPS PORTFOLIO CONTENT:\n\n';
-          
-          // Get all sections
-          const sections = appsGrid.querySelectorAll('.app-section');
-          sections.forEach(section => {
-            const categoryTitle = section.querySelector('.category-title')?.textContent || '';
-            pageContent += `\n=== ${categoryTitle.toUpperCase()} ===\n`;
-            
-            // Get subcategories (for private apps)
-            const subcategories = section.querySelectorAll('.subcategory');
-            if (subcategories.length > 0) {
-              subcategories.forEach(subcategory => {
-                const subcatTitle = subcategory.querySelector('.subcategory-title')?.textContent || '';
-                pageContent += `\n--- ${subcatTitle} ---\n`;
-                
-                const apps = subcategory.querySelectorAll('.app-card');
-                apps.forEach(app => {
-                  const link = app.querySelector('.app-link');
-                  const tooltip = app.querySelector('.tooltiptext');
-                  if (link && tooltip) {
-                    pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
-                  }
-                });
-              });
-            } else {
-              // Regular apps (non-subcategorized)
-              const apps = section.querySelectorAll('.app-card');
-              apps.forEach(app => {
-                const link = app.querySelector('.app-link');
-                const tooltip = app.querySelector('.tooltiptext');
-                if (link && tooltip) {
-                  pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
-                }
-              });
-            }
-          });
-          
-          pageContent += '\n\nNOTE: Private Apps section is hidden and requires tapping the "Web Apps" title 8 times to unlock.\n';
-          
-          return pageContent;
-        };
-        
-        const pageContent = getPageContent();
-        console.log('Complete page content for AI:', pageContent); // Debug log
-        
-        // Now use AI-like logic to answer the question based on complete page content
-        const generateIntelligentResponse = (userQuery, fullPageContent) => {
-          const query = userQuery.toLowerCase().trim();
-          
-          // Parse the content to understand what apps are available
-          const lines = fullPageContent.split('\n');
-          const apps = [];
-          let currentSection = '';
-          let currentSubsection = '';
-          
-          lines.forEach(line => {
-            if (line.includes('===') && line.includes('===')) {
-              currentSection = line.replace(/=/g, '').trim();
-            } else if (line.includes('---') && line.includes('---')) {
-              currentSubsection = line.replace(/-/g, '').trim();
-            } else if (line.startsWith('•')) {
-              const appLine = line.substring(1).trim();
-              const [nameDesc, url] = appLine.split('\n  URL: ');
-              const [name, description] = nameDesc.split(': ');
-              if (name && description) {
-                apps.push({
-                  name: name.trim(),
-                  description: description.trim(),
-                  url: url?.trim() || '',
-                  section: currentSection,
-                  subsection: currentSubsection
-                });
-              }
-            }
-          });
-          
-          console.log('Parsed apps:', apps); // Debug log
-          
-          // Intelligent response generation based on query
-          
-          // Handle "is there any app" type questions
-          if (query.includes('is there') || query.includes('are there') || query.includes('any app') || query.includes('do you have')) {
-            
-            // Check for images
-            if (query.includes('image') || query.includes('photo') || query.includes('picture')) {
-              const imageApps = apps.filter(app => 
-                app.description.toLowerCase().includes('image') || 
-                app.description.toLowerCase().includes('png') || 
-                app.description.toLowerCase().includes('jpeg') ||
-                app.description.toLowerCase().includes('photo')
-              );
-              if (imageApps.length > 0) {
-                let response = `📸 **Yes! Here are apps that work with images:**\n\n`;
-                imageApps.forEach(app => {
-                  response += `• **${app.name}** - ${app.description}\n`;
-                });
-                return response;
-              }
-            }
-            
-            // Check for PDF
-            if (query.includes('pdf')) {
-              const pdfApps = apps.filter(app => app.description.toLowerCase().includes('pdf'));
-              if (pdfApps.length > 0) {
-                let response = `📄 **Yes! Here are apps that work with PDF files:**\n\n`;
-                pdfApps.forEach(app => {
-                  response += `• **${app.name}** - ${app.description}\n`;
-                });
-                return response;
-              }
-            }
-            
-            // Check for Excel/CSV
-            if (query.includes('excel') || query.includes('csv') || query.includes('spreadsheet')) {
-              const excelApps = apps.filter(app => 
-                app.description.toLowerCase().includes('excel') || 
-                app.description.toLowerCase().includes('csv')
-              );
-              if (excelApps.length > 0) {
-                let response = `📊 **Yes! Here are apps that work with Excel/CSV files:**\n\n`;
-                excelApps.forEach(app => {
-                  response += `• **${app.name}** - ${app.description}\n`;
-                });
-                return response;
-              }
-            }
-            
-            // Check for games - be more specific
-            if (query.includes('game') || query.includes('play') || query.includes('fun') || query.includes('all games') || query.includes('show me games')) {
-              const gameApps = apps.filter(app => app.subsection && app.subsection.toLowerCase().includes('games'));
-              if (gameApps.length > 0) {
-                let response = `🎮 **Yes! Here are available games:**\n\n`;
-                gameApps.forEach(app => {
-                  response += `• **${app.name}** - ${app.description}\n`;
-                });
-                response += `\n🔓 **To access these games, tap the "Web Apps" title 8 times to unlock the private section!**`;
-                return response;
-              }
-            }
-            
-            // Check for AI/chatbot
-            if (query.includes('ai') || query.includes('chatbot') || query.includes('assistant')) {
-              const aiApps = apps.filter(app => 
-                app.section.toLowerCase().includes('ai') || 
-                app.description.toLowerCase().includes('ai') ||
-                app.description.toLowerCase().includes('chatbot') ||
-                app.description.toLowerCase().includes('gpt')
-              );
-              if (aiApps.length > 0) {
-                let response = `🤖 **Yes! Here are AI assistants and chatbots:**\n\n`;
-                aiApps.forEach(app => {
-                  response += `• **${app.name}** - ${app.description}\n`;
-                });
-                return response;
-              }
-            }
-            
-            // Check for engineering/petroleum
-            if (query.includes('engineering') || query.includes('petroleum') || query.includes('refinery') || query.includes('oil') || query.includes('gas')) {
-              const engineeringApps = apps.filter(app => 
-                app.description.toLowerCase().includes('petroleum') ||
-                app.description.toLowerCase().includes('refinery') ||
-                app.description.toLowerCase().includes('engineering') ||
-                app.description.toLowerCase().includes('oil') ||
-                app.description.toLowerCase().includes('gas')
-              );
-              if (engineeringApps.length > 0) {
-                let response = `🛢️ **Yes! Here are engineering/petroleum apps:**\n\n`;
-                engineeringApps.forEach(app => {
-                  response += `• **${app.name}** - ${app.description}\n`;
-                });
-                return response;
-              }
-            }
-            
-            // General keyword search
-            const keywords = query.split(' ').filter(word => word.length > 2);
-            const matchingApps = apps.filter(app => {
-              return keywords.some(keyword => 
-                app.name.toLowerCase().includes(keyword) || 
-                app.description.toLowerCase().includes(keyword)
-              );
-            });
-            
-            if (matchingApps.length > 0) {
-              let response = `✅ **Yes! I found these relevant apps:**\n\n`;
-              matchingApps.slice(0, 5).forEach(app => { // Limit to top 5 results
-                response += `• **${app.name}** - ${app.description}\n`;
-              });
-              if (matchingApps.length > 5) {
-                response += `\n...and ${matchingApps.length - 5} more apps available!`;
-              }
-              return response;
-            }
-          }
-          
-          // Handle "show me all games" or "games" requests
-          if (query.includes('show me all games') || query.includes('show all games') || query.includes('all games') || query === 'games') {
-            const gameApps = apps.filter(app => app.subsection && app.subsection.toLowerCase().includes('games'));
-            if (gameApps.length > 0) {
-              let response = `🎮 **All Available Games (${gameApps.length}):**\n\n`;
-              gameApps.forEach(app => {
-                response += `• **${app.name}** - ${app.description}\n`;
-              });
-              response += `\n🔓 **To access these games, tap the "Web Apps" title 8 times to unlock the private section!**`;
-              return response;
-            }
-          }
-
-          // Handle private apps access questions
-          if (query.includes('private apps') || query.includes('private section') || query.includes('hidden apps') || query.includes('access private') || query.includes('unlock')) {
-            const privateApps = apps.filter(app => app.section.toLowerCase().includes('private'));
-            if (privateApps.length > 0) {
-              return `🔓 **Private Apps Access:**\n\nTo unlock the private section with ${privateApps.length} exclusive apps:\n\n**Tap the "Web Apps" title 8 times quickly!**\n\nThis will reveal:\n• 🎮 Games (10 games)\n• 📄 CVs (2 portfolios)\n• 🛠️ Tools (5 specialized tools)\n• 👥 Client Apps (2 custom apps)\n• 📊 Interactive Reports (17 detailed reports)\n\n*Just tap the main title "Web Apps" at the top 8 times in a row!*`;
-            }
-          }
-          
-          // Handle "list all" requests
-          if (query.includes('list all') || query.includes('show all') || query.includes('all apps')) {
-            const publicApps = apps.filter(app => app.section.toLowerCase().includes('web applications'));
-            const aiApps = apps.filter(app => app.section.toLowerCase().includes('ai assistants'));
-            const privateApps = apps.filter(app => app.section.toLowerCase().includes('private'));
-            
-            let response = `📋 **Complete List of All Available Applications:**\n\n`;
-            
-            response += `🌐 **PUBLIC WEB APPLICATIONS (${publicApps.length}):**\n`;
-            publicApps.forEach(app => {
-              response += `• **${app.name}** - ${app.description}\n`;
-            });
-            
-            response += `\n🤖 **AI ASSISTANTS (${aiApps.length}):**\n`;
-            aiApps.forEach(app => {
-              response += `• **${app.name}** - ${app.description}\n`;
-            });
-            
-            response += `\n🔒 **PRIVATE APPS (${privateApps.length})** - unlock by tapping title 8 times:\n`;
-            privateApps.slice(0, 5).forEach(app => {
-              response += `• **${app.name}** - ${app.description}\n`;
-            });
-            if (privateApps.length > 5) {
-              response += `...and ${privateApps.length - 5} more!\n`;
-            }
-            
-            response += `\n**Total: ${apps.length} applications available!**`;
-            return response;
-          }
-          
-          // Handle specific app name searches (prioritize exact matches)
-          const exactMatch = apps.find(app => 
-            app.name.toLowerCase() === query ||
-            app.name.toLowerCase().includes(query) ||
-            query.includes(app.name.toLowerCase().replace(/\s+/g, ''))
-          );
-          
-          if (exactMatch) {
-            return `🔍 **${exactMatch.name}:**\n\n${exactMatch.description}\n\n📍 **Section:** ${exactMatch.section}${exactMatch.subsection ? ` > ${exactMatch.subsection}` : ''}\n🔗 **URL:** ${exactMatch.url}`;
-          }
-          
-          // Fallback: General search across all content
-          const searchTerms = query.split(' ').filter(word => word.length > 2);
-          const relevantApps = apps.filter(app => {
-            return searchTerms.some(term => 
-              app.name.toLowerCase().includes(term) || 
-              app.description.toLowerCase().includes(term)
-            );
-          });
-          
-          if (relevantApps.length > 0) {
-            let response = `🔍 **Found ${relevantApps.length} matching apps:**\n\n`;
-            relevantApps.slice(0, 5).forEach(app => {
-              response += `• **${app.name}** - ${app.description}\n`;
-            });
-            if (relevantApps.length > 5) {
-              response += `\n...and ${relevantApps.length - 5} more matches!`;
-            }
-            return response;
-          }
-          
-          // Default helpful response
-          return `I have complete knowledge of all ${apps.length} applications on this page! Try asking:\n\n• "Is there any app that works with images?"\n• "Show me all games"\n• "List all apps"\n• "Where are the other apps?"\n• Or describe what you need help with!`;
-        };
-        
-        const response = generateIntelligentResponse(userMessage, pageContent);
-        console.log('Generated response:', response); // Debug log
-        
-        return response;
-      }
-
-      async callMinistralAPI(userMessage) {
-        // Check if API key is properly configured
-        if (!this.apiKey || this.apiKey === 'YOUR_MISTRAL_API_KEY_HERE') {
-          throw new Error('Ministral API key not configured. Please add your API key to enable AI-powered responses.');
-        }
-
-        // Get fresh HTML content for each request (stateless)
-        const htmlContent = this.getPageContent();
-        
-        const systemPrompt = `You are the "Web Apps Assistant" for amsamms.github.io. You can ONLY answer questions about the specific apps listed in the HTML content below. Do NOT use any general knowledge or mention any apps/companies not listed.
-
-STRICT RULES:
-1. ONLY answer about apps found in the HTML below
-2. If asked about an app not in the HTML, say "I don't see that app in this portfolio"
-3. NEVER mention: Microsoft, Google, Adobe, Netflix, Spotify, OpenAI, ChatGPT, or any mainstream apps
-4. Focus ONLY on the portfolio apps: data analysis tools, games, calculators, etc.
-5. If unsure, redirect to exploring the available apps
-
-WEB APPS PORTFOLIO CONTENT:
-${htmlContent}
-
-SPECIFIC ANSWERS:
-- "What is Refinery Expert?" → "Refinery Expert is an AI assistant for petroleum refining questions, based on GPT 3.5, available on POE platform."
-- Questions about private apps → "Private Apps are hidden. Tap the 'Web Apps' title 8 times to unlock them."
-
-Remember: You are an assistant for THIS specific portfolio only. Stay focused on these apps!`;
-        
-        // Build messages array (stateless - fresh system prompt + user message only)
-        const messages = [
-          {
-            role: "system",
-            content: systemPrompt
-          },
-          {
-            role: "user",
-            content: userMessage
-          }
-        ];
-
-        const requestBody = {
-          model: this.model,
-          messages: messages,
-          temperature: 0.1, // Very low temperature for more deterministic, instruction-following responses
-          max_tokens: 200,
-          stream: false
-        };
-
-        console.log('=== SENDING TO MISTRAL API (STATELESS) ===');
-        console.log(`Messages: ${messages.length} (System + User only)`);
-        console.log('System prompt (first 300 chars):', messages[0]?.content?.substring(0, 300) + '...');
-        console.log('User message:', userMessage);
-        
-        try {
-          const response = await fetch(this.apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${this.apiKey}`
-          },
-          body: JSON.stringify(requestBody)
-        });
-
-          console.log('Fetch response status:', response.status);
-          console.log('Fetch response ok:', response.ok);
-
-          if (!response.ok) {
-            const errorText = await response.text();
-            console.error('Ministral API Error Response:', errorText);
-            throw new Error(`Ministral API request failed: ${response.status} - ${errorText}`);
-          }
-
-          const data = await response.json();
-          console.log('=== MISTRAL API RESPONSE ===');
-          console.log('Full response:', data);
-          console.log('Response content:', data.choices?.[0]?.message?.content);
-          console.log('=== END API RESPONSE ===');
-
-          if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
-            return data.choices[0].message.content.trim();
-          } else {
-            throw new Error('Unexpected response format from Ministral API');
-          }
-        } catch (fetchError) {
-          console.error('Fetch error details:', fetchError);
-          console.error('Error name:', fetchError.name);
-          console.error('Error message:', fetchError.message);
-          
-          // Re-throw with more context
-          throw new Error(`API call failed: ${fetchError.message}`);
-        }
-      }
-
-      getPageContent() {
-        const appsGrid = document.getElementById('appsGrid');
-        if (!appsGrid) return '';
-        
-        let pageContent = 'COMPLETE WEB APPS PORTFOLIO CONTENT:\n\n';
-        
-        // Get all sections
-        const sections = appsGrid.querySelectorAll('.app-section');
-        sections.forEach(section => {
-          const categoryTitle = section.querySelector('.category-title')?.textContent || '';
-          pageContent += `\n=== ${categoryTitle.toUpperCase()} ===\n`;
-          
-          // Get subcategories (for private apps)
-          const subcategories = section.querySelectorAll('.subcategory');
-          if (subcategories.length > 0) {
-            subcategories.forEach(subcategory => {
-              const subcatTitle = subcategory.querySelector('.subcategory-title')?.textContent || '';
-              pageContent += `\n--- ${subcatTitle} ---\n`;
-              
-              const apps = subcategory.querySelectorAll('.app-card');
-              apps.forEach(app => {
-                const link = app.querySelector('.app-link');
-                const tooltip = app.querySelector('.tooltiptext');
-                if (link && tooltip) {
-                  pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
-                }
-              });
-            });
-          } else {
-            // Regular apps (non-subcategorized)
-            const apps = section.querySelectorAll('.app-card');
-            apps.forEach(app => {
-              const link = app.querySelector('.app-link');
-              const tooltip = app.querySelector('.tooltiptext');
-              if (link && tooltip) {
-                pageContent += `• ${link.textContent.trim()}: ${tooltip.textContent.trim()}\n  URL: ${link.href}\n`;
-              }
-            });
-          }
-        });
-        
-        pageContent += '\n\nNOTE: Private Apps section is hidden and requires tapping the "Web Apps" title 8 times to unlock.\n';
-        
-        return pageContent;
-      }
-
-      async callGeminiAPI(userMessage) {
-        // This method is not currently used but kept for future reference
-        throw new Error('Gemini API not implemented. Using Ministral API instead.');
-      }
-    }
-
-    // Initialize chatbot when page loads
-    const chatbot = new WebAppsChatbot();
-    console.log('Chatbot initialized successfully:', chatbot);
-    
-    // Debug: Add a test function to manually trigger animations (accessible via console)
-    window.testAttentionAnimations = function() {
-      console.log('Manual test: showing attention animations');
-      localStorage.removeItem('chatbot-interacted');
-      const pulseRing = document.querySelector('.chatbot-pulse-ring');
-      const tooltip = document.querySelector('.chatbot-tooltip');
-      if (pulseRing) pulseRing.style.setProperty('display', 'block', 'important');
-      if (tooltip) tooltip.style.setProperty('display', 'block', 'important');
-      console.log('Animations should now be visible!');
-    };
-  </script>
+  <script src="app_fixed.js"></script>
 </body>
 </html>
