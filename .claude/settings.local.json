@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(del README_ENHANCEMENTS.md app_enhanced.js capture_screenshots.py create_placeholders.py index.html index_complete.html index_enhanced.html index_final.html index_fixed.html requirements.txt styles.css test-chatbot.html)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(git init:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
