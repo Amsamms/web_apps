@@ -1108,11 +1108,9 @@
         this.useMinistralAPI = true; // Use Ministral instead of Gemini
         
         // AI-POWERED RESPONSES ENABLED!
-        // API key configured for Mistral 3B
-        // Cost: Only $0.04 per million tokens (extremely cheap!)
-        this.apiKey = 'mnmKw0OPPoClTcjqaOpJDGO4ZLJLH93M'; // Your actual API key
-        
-        this.apiUrl = 'https://api.mistral.ai/v1/chat/completions';
+        // Requests go through a serverless proxy so the Mistral API key
+        // never ships to the browser (see landing-page-chat-proxy).
+        this.apiUrl = 'https://landing-page-chat-proxy.vercel.app/api/chat';
         this.model = 'ministral-3b-2410'; // Ministral 3B exact model version
         this.isTyping = false;
         this.requestCount = 0;
@@ -1673,11 +1671,6 @@
       }
 
       async callMinistralAPI(userMessage) {
-        // Check if API key is properly configured
-        if (!this.apiKey || this.apiKey === 'YOUR_MISTRAL_API_KEY_HERE') {
-          throw new Error('Ministral API key not configured. Please add your API key to enable AI-powered responses.');
-        }
-
         // Get fresh HTML content for each request (stateless)
         const htmlContent = this.getPageContent();
         
@@ -1728,8 +1721,7 @@ Remember: You are an assistant for THIS specific portfolio only. Stay focused on
           const response = await fetch(this.apiUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${this.apiKey}`
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(requestBody)
         });
